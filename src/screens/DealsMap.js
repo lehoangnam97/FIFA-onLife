@@ -9,6 +9,8 @@ import map from "../styles/map";
 import {mapStyle, defaultRegion} from '../config/map.js'
 import FilterSlidingUp from "../components/FilterSlidingUp";
 import DealSlidingUp from "../components/DealSlidingUp";
+import ActionButton from 'react-native-action-button';
+
 
 export default class DealsMap extends Component {
     constructor(props) {
@@ -51,7 +53,7 @@ export default class DealsMap extends Component {
                     key={deal.id}
                     deal={deal}
                     onPressed={() => {
-                        this.setState({currentUser: deal});
+                        this.setState({currentDeal: deal});
                         axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + deal.latitude + ',' + deal.longitude + '&key=AIzaSyC-H415RwIwooot2IeOqn9SsX1jEof8QxA')
                             .then(response => {
                                 let address = response.data.results[0].formatted_address.toString().split(/,/);
@@ -89,6 +91,23 @@ export default class DealsMap extends Component {
                     </Marker>
                 </MapView>
                 <DealSlidingUp deal={this.state.currentDeal}/>
+                <FilterSlidingUp/>
+
+                <ActionButton
+                    buttonColor="white"
+                    verticalOrientation={"down"}
+                    position={"left"}>
+
+                    <ActionButton.Item title="Về trang chủ">
+                    </ActionButton.Item>
+
+                    <ActionButton.Item title="Lọc kèo">
+                    </ActionButton.Item>
+
+                    <ActionButton.Item title="Tạo kèo">
+
+                    </ActionButton.Item>
+                </ActionButton>
 
             </View>
         )
@@ -120,4 +139,3 @@ const styles = StyleSheet.create({
     }
 
 });
-

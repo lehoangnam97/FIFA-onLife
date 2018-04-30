@@ -197,7 +197,7 @@ FilterSlidingUp.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-        container: {width: '100%', height: 200, borderRadius:5, elevation:3},
+        container: {width: '100%', height: 200, borderRadius:5, elevation:3,backgroundColor:'white'},
 
         slidingTitle: {justifyContent: 'center', width: '100%', alignItems: 'center'},
 

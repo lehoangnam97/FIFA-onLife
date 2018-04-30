@@ -7,7 +7,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 
 
 const propTypes = ({
-    data: PropTypes.any.required,
+    deals: PropTypes.any,
     style: PropTypes.any,
     onCallPress: PropTypes.func,
     onMakeDealPress:PropTypes.func,
@@ -15,7 +15,7 @@ const propTypes = ({
 });
 
 const defaultProps = {
-    data: [{url: "", name: "", type: "", age: "", position: "", time1: "", time2: ""}],
+    deals: [{url: "", name: "", type: "", age: "", position: "", time1: "", time2: ""}],
     style: {},
     onCallPress() {
     },
@@ -40,7 +40,7 @@ export default class DealsListView extends Component {
                            underlayColor="#2ecc71"
                             align="bottom"
 
-                           sections={this.props.data}
+                           sections={this.props.deals}
                            renderHeader={
                                (section, i, isActive, sections) =>
                                    <DealsHeader section={section}/>
