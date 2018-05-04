@@ -26,7 +26,6 @@ const defaultProps = {
     },
     onPress() {
     },
-
 };
 
 export default class DealMarker extends Component {

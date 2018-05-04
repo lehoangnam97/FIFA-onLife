@@ -55,3 +55,20 @@ export const greenText = StyleSheet.create({
         fontSize: dataSize
     }
 });
+
+export const greyText=StyleSheet.create({
+    title: {
+        fontWeight: 'bold',
+        color: '#7f8c8d',
+        fontSize: titleSize
+    },
+    subTitle: {
+        fontWeight: 'bold',
+        color: '#7f8c8d',
+        fontSize: subTitleSize
+    },
+    data: {
+        color: '#7f8c8d',
+        fontSize: dataSize
+    }
+});

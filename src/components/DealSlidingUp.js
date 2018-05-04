@@ -28,7 +28,7 @@ const propTypes = ({
 });
 
 const defaultProps = {
-    deal: {url: "", name: "", type: "", age: "", position: "", time1: "", time2: ""},
+    deal: {url: "", name: "", teamType: "",dealType:"", age: "", position: "", time1: "", time2: ""},
     style: {},
     draggableRange: {top: 200, bottom: 5},
     showBackdrop: false,
@@ -141,11 +141,17 @@ export default class DealSlidingUp extends Component {
                         </View>
 
                         <View style={{flex: 3, marginTop: 10}}>
-                            <Text style={styles.infoText}> {"Tìm kèo :" + deal.type}</Text>
+                            <Text style={styles.infoText}> {"Tìm kèo :" + deal.teamType}</Text>
                             <View style={styles.infoRowContainer}>
                                 <ElementsIcon name="location-on" size={20} color="#2c3e50"/>
                                 <Text style={styles.infoText}> {deal.position}</Text>
                             </View>
+
+                            <View style={styles.infoRowContainer}>
+                                <ElementsIcon name="date-range" size={20} color="#2c3e50"/>
+                                <Text style={styles.infoText}>{" " + deal.dealType}</Text>
+                            </View>
+
 
                             <View style={styles.infoRowContainer}>
                                 <ElementsIcon name="date-range" size={20} color="#2c3e50"/>

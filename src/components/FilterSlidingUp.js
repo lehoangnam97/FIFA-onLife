@@ -8,7 +8,8 @@ import SlidingUpPanel from 'rn-sliding-up-panel';
 
 const propTypes = ({
     style: PropTypes.any,
-    onTypeFilterChange: PropTypes.func,
+    onFilterChange: PropTypes.func,
+    onTeamTypeFilterChange: PropTypes.func,
     onAgeFilterChange: PropTypes.func,
     onDistrictFilterChange: PropTypes.func,
     onDraggableChange: PropTypes.func,
@@ -26,7 +27,9 @@ const defaultProps = {
     draggableRange: {top: 200, bottom: 5},
     showBackdrop: false,
     visible: true,
-    onTypeFilterChange() {
+    onFilterChange() {
+    },
+    onTeamTypeFilterChange() {
     },
     onAgeFilterChange() {
     },
@@ -43,12 +46,13 @@ export default class FilterSlidingUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: "Tất cả",
+            teamType: "Tất cả",
             age: "Tất cả",
             district: "Tất cả",
             draggable: true,
         };
-        this.onTypeFilterChange = this.onTypeFilterChange.bind(this);
+        this.onFilterChange=this.onFilterChange.bind(this);
+        this.onTeamTypeFilterChange = this.onTeamTypeFilterChange.bind(this);
         this.onAgeFilterChange = this.onAgeFilterChange.bind(this);
         this.onDistrictFilterChange = this.onDistrictFilterChange.bind(this);
         this.onDraggableChange = this.onDraggableChange.bind(this);
@@ -57,11 +61,12 @@ export default class FilterSlidingUp extends Component {
         this.onDropDownWillHide = this.onDropDownWillHide.bind(this);
     };
 
-    onTypeFilterChange(type) {
-        const {onTypeFilterChange} = this.props;
-        this.setState({type: type, draggable: true});
+    onTeamTypeFilterChange(teamType) {
+        const {onTeamTypeFilterChange} = this.props;
+        this.setState({teamType: teamType, draggable: true});
         this.onDraggableChange(false);
-        onTypeFilterChange(type);
+        onTeamTypeFilterChange(teamType);
+        this.onFilterChange();
     };
 
     onAgeFilterChange(age) {
@@ -69,6 +74,7 @@ export default class FilterSlidingUp extends Component {
         this.setState({age: age, draggable: true});
         this.onDraggableChange(true);
         onAgeFilterChange(age);
+        this.onFilterChange();
     };
 
     onDistrictFilterChange(district) {
@@ -76,6 +82,12 @@ export default class FilterSlidingUp extends Component {
         this.setState({district: district, draggable: true});
         this.onDraggableChange(true);
         onDistrictFilterChange(district);
+       this.onFilterChange();
+    }
+
+    onFilterChange() {
+        const {onFilterChange} = this.props;
+        onFilterChange(this.state.teamType,this.state.age,this.state.district);
     }
 
 
@@ -101,15 +113,15 @@ export default class FilterSlidingUp extends Component {
 
 
     render() {
-        const {visible,draggable,draggableRange, style}=this.props;
-        const containerHeight = Math.abs(draggableRange.top -  draggableRange.bottom - 20);
+        const {visible, draggable, draggableRange, style} = this.props;
+        const containerHeight = Math.abs(draggableRange.top - draggableRange.bottom - 20);
         return (
             <SlidingUpPanel
                 ref={c => this._panel = c}
                 visible={visible}
-                allowDragging={ draggable}
-                draggableRange={ draggableRange}
-                onRequestClose={() => this.onRequestClose()}
+                allowDragging={draggable}
+                draggableRange={draggableRange}
+                onRequestClose={() => this.onRequestClose}
                 showBackdrop={false}>
                 <View style={[styles.container, {height: containerHeight}, style]}>
                     <TouchableOpacity
@@ -126,21 +138,21 @@ export default class FilterSlidingUp extends Component {
                     <View style={styles.slidingContent}>
                         <View style={styles.filterContainer}>
                             <View
-                                style={[styles.filterNameContainer, {backgroundColor: (this.state.type === 'Tất cả') ? '#c0392b' : '#27ae60'}]}>
-                                <Text style={styles.filterNameText}>Type : </Text>
+                                style={[styles.filterNameContainer, {backgroundColor: (this.state.teamType === 'Tất cả') ? '#c0392b' : '#27ae60'}]}>
+                                <Text style={styles.filterNameText}>Loại đội : </Text>
                             </View>
 
                             <ModalDropdown
                                 style={styles.modal}
-                                options={filterOptions.type}
+                                options={filterOptions.teamType}
                                 dropdownStyle={styles.dropDownStyle}
                                 dropdownTextStyle={styles.dropDownTextStyle}
                                 onDropdownWillShow={() => this.onDropDownWillShow}
                                 onDropdownWillHide={() => this.onDropDownWillHide}
-                                onSelect={(idx, type) => {
-                                    this.onTypeFilterChange(type);
+                                onSelect={(idx, teamType) => {
+                                    this.onTeamTypeFilterChange(teamType);
                                 }}>
-                                <Text style={styles.selectedText}>{this.state.type}</Text>
+                                <Text style={styles.selectedText}>{this.state.teamType}</Text>
                             </ModalDropdown>
                         </View>
 
@@ -197,7 +209,7 @@ FilterSlidingUp.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-        container: {width: '100%', height: 200, borderRadius:5, elevation:3,backgroundColor:'white'},
+        container: {width: '100%', height: 200, borderRadius: 5, elevation: 3, backgroundColor: 'white'},
 
         slidingTitle: {justifyContent: 'center', width: '100%', alignItems: 'center'},
 

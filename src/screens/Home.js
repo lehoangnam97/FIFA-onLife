@@ -54,7 +54,6 @@ export default class Home extends Component {
         return (
 
             <View style={{flex: 1}}>
-                <Text >hjaks {this.state.loginId}</Text>
                 <DealsListView deals={this.state.deals} onMakeDealPress={(section) => {
                     this.onMakeDealPress(section)
                 }}/>

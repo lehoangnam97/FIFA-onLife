@@ -15,7 +15,7 @@ const propTypes = ({
 });
 
 const defaultProps = {
-    deals: [{url: "", name: "", type: "", age: "", position: "", time1: "", time2: ""}],
+    deals: [{url: "", name: "", teamType: "", age: "", position: "", time1: "", time2: "",dealType:""}],
     style: {},
     onCallPress() {
     },

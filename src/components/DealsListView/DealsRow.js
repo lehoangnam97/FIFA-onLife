@@ -10,9 +10,10 @@ export class DealsHeader extends Component {
                 <Image style={headerStyles.image} source={{uri: section.url}}/>
                 <View style={headerStyles.infoContainer}>
                     <Text style={headerStyles.title}>{section.name}</Text>
-                    <Text style={headerStyles.data}>{section.type} people</Text>
+                    <Text style={headerStyles.data}>{section.teamType} người</Text>
                     <Text style={headerStyles.data}>{section.position}</Text>
-                    <Text style={headerStyles.data}>{section.age} year old average</Text>
+                    <Text style={headerStyles.data}>Trung bình {section.age} tuổi</Text>
+                    <Text style={headerStyles.data}>Kèo {section.age}</Text>
                     <Text style={headerStyles.data}>{section.date}</Text>
                     <Text style={headerStyles.data}>{section.time1 + " - " + section.time2}</Text>
                 </View>

@@ -17,11 +17,9 @@ export default class Login extends Component {
             about: "",
         };
 
-        globalStore.register('Login',
-            (s) => this.setState(s),
-            () => {
-                return this.state
-            });
+        globalStore.register('Login', (s) => this.setState(s), () => {
+            return this.state
+        });
     };
 
 
