@@ -1,6 +1,6 @@
 function emptyFunction(){
     return undefined;
-}   
+}
 
 class Store {
     constructor() {

@@ -95,7 +95,7 @@ export default class Login extends Component {
                                          }
 
                                          _this.setState({loginId: responseJson[0].id});
-                                         _this.props.navigation.navigate('Home');
+                                         _this.props.navigation.navigate('Main');
                                      })
 
                              }}
@@ -127,7 +127,7 @@ export default class Login extends Component {
 
 
                                          _this.setState({loginId: responseJson[0].id});
-                                         _this.props.navigation.navigate('Home');
+                                         _this.props.navigation.navigate('Main');
                                      })
                                      .catch((error) => {
                                          console.error(error);

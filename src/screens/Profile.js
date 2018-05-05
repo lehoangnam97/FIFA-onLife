@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {width, height, totalSize} from 'react-native-dimension';
 
-class Profile extends Component {
+export default class Profile extends Component {
     constructor(props) {
         super(props);
     }
