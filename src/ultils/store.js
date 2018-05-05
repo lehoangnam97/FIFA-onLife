@@ -1,20 +1,24 @@
 class Store {
     constructor() {
-        this.setStateCallbackMap = {};
+        this.setStateCallBackMap = {};
 
         this.getStateCallBackMap = {};
     }
 
     setStateOf(componentName, state) {
-        this.setStateCallbackMap[componentName](state);
+        if (! componentName in this.setStateCallBackMap)
+            return null;
+        this.setStateCallBackMap[componentName](state);
     }
 
     getStateOf(componentName) {
+        if (! componentName in this.getStateCallBackMap)
+            return null;
         return this.getStateCallBackMap[componentName]();
     }
 
     register(componentName, componentSetState, componentState) {
-        this.setStateCallbackMap[componentName] = componentSetState;
+        this.setStateCallBackMap[componentName] = componentSetState;
         this.getStateCallBackMap[componentName] = componentState;
     }
 }

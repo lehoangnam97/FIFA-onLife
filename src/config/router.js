@@ -1,12 +1,12 @@
 import React from 'react';
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator,TabNavigator} from 'react-navigation';
 import Login from '../screens/Login';
 import DealsMap from '../screens/DealsMap'
 import Home from "../screens/Home";
 import ProfileSettings from "../screens/ProfileSettings"
 
 
-export const AppStackNavigator = StackNavigator({
+export const AppStackNavigator = TabNavigator({
     Login: {
         screen: Login,
         navigationOptions: {header: null}
