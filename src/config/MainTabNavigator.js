@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import ProfileSettings from "../screens/ProfileSettings"
 import Profile from '../screens/Profile'
 import {NavigationComponent} from 'react-native-material-bottom-navigation'
+import {Icon} from "react-native-elements";
 
 export const MainTabNavigator = TabNavigator(
     {
@@ -18,29 +19,43 @@ export const MainTabNavigator = TabNavigator(
         tabBarPosition: 'bottom',
         tabBarOptions: {
             bottomNavigationOptions: {
-                labelColor: 'white',
-                backgroundColor: 'red',
-                rippleColor: 'white',
+                innerStyle: {
+                    elevation: 10,
+                    borderTopLeftRadius: 5,
+                    borderTopRightRadius: 5,
+                    borderWidth: 0.2,
+                    borderColor: "#95a5a6"
+                },
+                labelColor: '#2c3e50',
+                activeLabelColor: '#27ae60',
+                backgroundColor: '#ecf0f1',
+                rippleColor: 'black',
+                shifting: false,
                 tabs: {
-                    Login: {
-                        barBackgroundColor: '#37474F',
-                        labelColor: 'black'
-                    },
                     Home: {
-                        barBackgroundColor: '#37474F',
-                        labelColor: 'black'
+                        label: "Trang chủ",
+                        icon: (<Icon size={24} name="home" color="#2c3e50"/>),
+                        activeIcon: (<Icon size={24} name="home" color="#27ae60"/>)
                     },
-                    ProfileSettings: {
-                        barBackgroundColor: '#37474F',
-                        labelColor: 'black'
+                    DealsMap: {
+                        label: "Bản đồ",
+                        icon: (<Icon size={24} name="map" color="#2c3e50"/>),
+                        activeIcon: (<Icon size={24} name="map" color="#27ae60"/>)
                     },
                     Profile: {
-                        barBackgroundColor: '#37474F',
-                        labelColor: 'black'
-                    }
+                        label: "Trang cá nhân",
+                        icon: (<Icon size={24} name="account-circle" color="#2c3e50"/>),
+                        activeIcon: (<Icon size={24} name="account-circle" color="#27ae60"/>)
+                    },
+                    ProfileSettings: {
+                        label: "Chỉnh sửa",
+                        icon: (<Icon size={24} name="settings" color="#2c3e50"/>),
+                        activeIcon: (<Icon size={24} name="settings" color="#27ae60"/>)
+                    },
 
                 }
             }
         }
     }
 );
+

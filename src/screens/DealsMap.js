@@ -13,6 +13,7 @@ import {width} from 'react-native-dimension';
 
 
 export default class DealsMap extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
