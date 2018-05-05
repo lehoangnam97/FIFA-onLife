@@ -7,13 +7,15 @@ export class DealsHeader extends Component {
         const {section, index, isActive, sections} = this.props;
         return (
             <View style={headerStyles.container}>
-                <Image style={headerStyles.image} source={{uri: section.url}}/>
-                <View style={headerStyles.infoContainer}>
+                <View style={headerStyles.imageContainer}>
+                    <Image style={headerStyles.image} source={{uri: section.url}}/>
                     <Text style={headerStyles.title}>{section.name}</Text>
-                    <Text style={headerStyles.data}>{section.teamType} người</Text>
-                    <Text style={headerStyles.data}>{section.position}</Text>
-                    <Text style={headerStyles.data}>Trung bình {section.age} tuổi</Text>
-                    <Text style={headerStyles.data}>Kèo {section.age}</Text>
+                </View>
+                <View style={headerStyles.infoContainer}>
+                    <Text style={headerStyles.data}>Loại kèo: {section.dealType}</Text>
+                    <Text style={headerStyles.data}>Loại đội: {section.type}</Text>
+                    <Text style={headerStyles.data}>Tuổi {section.age}</Text>
+                    <Text style={headerStyles.data}>Khu vực: {section.position}</Text>
                     <Text style={headerStyles.data}>{section.date}</Text>
                     <Text style={headerStyles.data}>{section.time1 + " - " + section.time2}</Text>
                 </View>
@@ -58,7 +60,12 @@ const headerStyles = StyleSheet.create({
         width: '100%',
         aspectRatio: 3,
         padding: 30,
-        borderTopWidth: 2, borderColor: '#bdc3c7'
+        borderTopWidth: 1, borderColor: '#bdc3c7',
+        elevation:5,
+        backgroundColor: 'white'
+    },
+    imageContainer:{
+      flex:1
     },
     image: {
         width: '100%',
@@ -67,7 +74,7 @@ const headerStyles = StyleSheet.create({
         alignSelf: 'center'
     },
     infoContainer: {
-        flex: 4,
+        flex: 2,
         justifyContent: 'center',
         paddingLeft: 10
     },

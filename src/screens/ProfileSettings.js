@@ -66,12 +66,12 @@ export default class User extends Component {
                                 <Text style={{color: 'white', fontSize: 15}}>Cập nhật ảnh đại diện</Text>
                             </TouchableOpacity>
 
-                            <View style={styles.socialButtonContainer}>
-                                <SocialIcon iconSize={20} style={styles.socialButton} type='facebook'/>
-                                <SocialIcon iconSize={20} style={styles.socialButton} type='twitter'/>
-                                <SocialIcon style={[styles.socialButton, {backgroundColor: '#D42F8A'}]}
-                                            iconSize={20} type='instagram'/>
-                            </View>
+                            {/*<View style={styles.socialButtonContainer}>*/}
+                                {/*<SocialIcon iconSize={20} style={styles.socialButton} type='facebook'/>*/}
+                                {/*<SocialIcon iconSize={20} style={styles.socialButton} type='twitter'/>*/}
+                                {/*<SocialIcon style={[styles.socialButton, {backgroundColor: '#D42F8A'}]}*/}
+                                            {/*iconSize={20} type='instagram'/>*/}
+                            {/*</View>*/}
                         </View>
                     </ImageBackground>
 
@@ -127,11 +127,11 @@ const styles = StyleSheet.create({
 
     activityIndicator: {alignSelf: 'center'},
 
-    header: StyleSheet.flatten(container.header),
+    header: StyleSheet.flatten(container.headerContainer),
 
-    navigateBackButton: StyleSheet.flatten(container.leftButton),
+    navigateBackButton: StyleSheet.flatten(container.headerLeftButton),
 
-    doneButton: StyleSheet.flatten(container.rightButton),
+    doneButton: StyleSheet.flatten(container.headerRightButton),
 
     imageBackground: {height: 300, width: '100%', justifyContent: 'center', alignItems: 'center'},
 

@@ -28,7 +28,7 @@ export const MainTabNavigator = TabNavigator(
                 },
                 labelColor: '#2c3e50',
                 activeLabelColor: '#27ae60',
-                backgroundColor: '#ecf0f1',
+                backgroundColor: 'white',
                 rippleColor: 'black',
                 shifting: false,
                 tabs: {

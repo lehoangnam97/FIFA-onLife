@@ -37,7 +37,7 @@ export default class CreateDealIndicator extends Component {
         this.state = {
             deal: {
                 id: "",
-                teamType: "",
+                type: "",
                 latitude: "",
                 longitude: "",
                 position: "",
@@ -87,7 +87,7 @@ export default class CreateDealIndicator extends Component {
 
     onTeamTypeChange(teamType) {
         let newDeal = Object.assign({}, this.state.deal);
-        newDeal.teamType = teamType;
+        newDeal.type = teamType;
         this.onDealChange(newDeal);
     };
 

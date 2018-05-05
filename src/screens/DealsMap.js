@@ -22,7 +22,7 @@ export default class DealsMap extends Component {
             deals: [],
             dealsFilter: [],
             currentMarkerAddress: "",
-            currentDealSlidingInfo: {url: "", name: "", teamType: "",dealType:"", age: "", position: "", time1: "", time2: ""},
+            currentDealSlidingInfo: {url: "", name: "", type: "",dealType:"", age: "", position: "", time1: "", time2: ""},
             loginCoordinate: {
                 latitude: defaultRegion.latitude,
                 longitude: defaultRegion.longitude,
@@ -60,7 +60,7 @@ export default class DealsMap extends Component {
         let result = [];
         if (teamType !== 'Tất cả') {
             this.state.deals.map(deal => {
-                if (deal.teamType === teamType || deal.teamType === 'Tất cả') result.push(deal);
+                if (deal.type === teamType || deal.type === 'Tất cả') result.push(deal);
             })
         }
         else result = this.state.deals.slice();
@@ -149,7 +149,7 @@ export default class DealsMap extends Component {
                 <FilterSlidingUp visible={this.state.filterSlidingVisible}
                                  onRequestClose={this.onFilterSlidingRequestClose}
                                  onFilterChange={(teamType, age, district) => {
-                                     this.onFilterChange(type, age, district)
+                                     this.onFilterChange(teamType, age, district)
                                  }}/>
 
 
