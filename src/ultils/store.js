@@ -1,3 +1,7 @@
+function emptyFunction(){
+    return undefined;
+}   
+
 class Store {
     constructor() {
         this.setStateCallBackMap = {};
@@ -7,13 +11,13 @@ class Store {
 
     setStateOf(componentName, state) {
         if (! componentName in this.setStateCallBackMap)
-            return null;
+            return emptyFunction();
         this.setStateCallBackMap[componentName](state);
     }
 
     getStateOf(componentName) {
         if (! componentName in this.getStateCallBackMap)
-            return null;
+            return emptyFunction();
         return this.getStateCallBackMap[componentName]();
     }
 

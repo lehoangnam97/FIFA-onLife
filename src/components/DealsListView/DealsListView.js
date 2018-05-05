@@ -31,15 +31,10 @@ export default class DealsListView extends Component {
     }
 
     render() {
-
         return (
             <View style={[styles.container, this.props.style]}>
-                <Accordion initiallyActiveSection={null}
-                           expanded={false}
-                           activeOpacity={0.5}
-                           underlayColor="#2ecc71"
-                            align="bottom"
-
+                <Accordion initiallyActiveSection={null} expanded={false} activeOpacity={0.5}
+                           underlayColor="#2ecc71" align="bottom"
                            sections={this.props.deals}
                            renderHeader={
                                (section, i, isActive, sections) =>
