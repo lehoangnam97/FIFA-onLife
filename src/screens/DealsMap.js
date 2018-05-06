@@ -10,6 +10,7 @@ import DealSlidingUp from "../components/DealSlidingUp";
 import ActionButton from 'react-native-action-button';
 import {Icon as ElementsIcon} from 'react-native-elements';
 import {width} from 'react-native-dimension';
+import {tabNavigatorHeight} from "../config/mainTabNavigator";
 
 
 export default class DealsMap extends Component {
@@ -22,7 +23,16 @@ export default class DealsMap extends Component {
             deals: [],
             dealsFilter: [],
             currentMarkerAddress: "",
-            currentDealSlidingInfo: {url: "", name: "", type: "",dealType:"", age: "", position: "", time1: "", time2: ""},
+            currentDealSlidingInfo: {
+                url: "",
+                name: "",
+                type: "",
+                dealType: "",
+                age: "",
+                position: "",
+                time1: "",
+                time2: ""
+            },
             loginCoordinate: {
                 latitude: defaultRegion.latitude,
                 longitude: defaultRegion.longitude,
@@ -148,6 +158,7 @@ export default class DealsMap extends Component {
 
                 <FilterSlidingUp visible={this.state.filterSlidingVisible}
                                  onRequestClose={this.onFilterSlidingRequestClose}
+                                 draggableRange={{top: tabNavigatorHeight + 250, bottom: tabNavigatorHeight}}
                                  onFilterChange={(teamType, age, district) => {
                                      this.onFilterChange(teamType, age, district)
                                  }}/>
@@ -155,40 +166,40 @@ export default class DealsMap extends Component {
 
                 <DealSlidingUp visible={this.state.dealSlidingVisible}
                                deal={this.state.currentDealSlidingInfo}
+                               draggableRange={{top: tabNavigatorHeight + 250, bottom: tabNavigatorHeight}}
                                onRequestClose={this.onDealSlidingRequestClose}/>
 
                 <View style={styles.currentAddressTextContainer}>
                     <Text style={styles.currentAddressText}>{this.state.currentMarkerAddress}</Text>
                 </View>
 
-                <View style={styles.actionButtonContainer}>
-                    <TouchableOpacity style={styles.loginLocationButton}
-                                      onPress={this.onPressLoginLocationButton}>
-                        <ElementsIcon name="my-location" size={20} color="#16a085"/>
-                    </TouchableOpacity>
 
-                    <ActionButton
-                        buttonColor="white" verticalOrientation={"down"} position={"left"}
-                        size={width(12)} offsetX={0} offsetY={width(12) + 5} spacing={10}
-                        renderIcon={active => active === false ?
-                            (<ElementsIcon name="menu" size={20} color="#16a085"/>) :
-                            (<ElementsIcon name="close" size={20} color="#16a085"/>)}>
-
-                        <ActionButton.Item title="Về trang chủ" onPress={this.onPressActionBackHome}>
-                            <ElementsIcon name="home" size={20} color="#4CAF50"/>
-                        </ActionButton.Item>
-
-                        <ActionButton.Item title="Lọc kèo" onPress={this.onPressActionFilter}>
-                            <ElementsIcon name="filter-list" size={20} color="#4CAF50"/>
-                        </ActionButton.Item>
-
-                        <ActionButton.Item title="Tạo kèo" onPress={this.onPressActionCreateDeal}>
-                            <ElementsIcon name="create" size={20} color="#4CAF50"/>
-                        </ActionButton.Item>
-                    </ActionButton>
+                <TouchableOpacity style={styles.loginLocationButton}
+                                  onPress={this.onPressLoginLocationButton}>
+                    <ElementsIcon name="my-location" size={20} color="#16a085"/>
+                </TouchableOpacity>
 
 
-                </View>
+                <ActionButton
+                    buttonColor="white" verticalOrientation={"down"} position={"left"}
+                    size={width(12)} offsetX={width(5)} offsetY={width(35)} spacing={10}
+                    renderIcon={active => active === false ?
+                        (<ElementsIcon name="menu" size={20} color="#16a085"/>) :
+                        (<ElementsIcon name="close" size={20} color="#16a085"/>)}>
+
+                    <ActionButton.Item title="Về trang chủ" onPress={this.onPressActionBackHome}>
+                        <ElementsIcon name="home" size={20} color="#4CAF50"/>
+                    </ActionButton.Item>
+
+                    <ActionButton.Item title="Lọc kèo" onPress={this.onPressActionFilter}>
+                        <ElementsIcon name="filter-list" size={20} color="#4CAF50"/>
+                    </ActionButton.Item>
+
+                    <ActionButton.Item title="Tạo kèo" onPress={this.onPressActionCreateDeal}>
+                        <ElementsIcon name="create" size={20} color="#4CAF50"/>
+                    </ActionButton.Item>
+                </ActionButton>
+
             </View>
         )
     }
@@ -222,15 +233,12 @@ const styles = StyleSheet.create({
         borderRadius: 10, borderWidth: 3, borderColor: 'white',
         overflow: 'hidden', backgroundColor: '#007AFF'
     },
-    actionButtonContainer: {
-        position: 'absolute',
-        marginTop: 80,
-        marginLeft: 10,
-        width: '12%',
-        aspectRatio: 0.45,
-    },
+
     loginLocationButton: {
-        width: '100%', aspectRatio: 1,
+        position: 'absolute',
+        marginTop: width(20),
+        marginLeft: width(5),
+        width: '12%', aspectRatio: 1,
         borderRadius: 100,
         backgroundColor: 'white',
         alignItems: 'center', justifyContent: 'center', elevation: 5,

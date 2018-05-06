@@ -55,11 +55,12 @@ export default class ChooseAddressStep extends React.Component {
         this.setState({loginCoordinate: coordinate});
         onLatitudeChange(coordinate.latitude);
         onLongitudeChange(coordinate.longitude);
-        onAddressChange(coordinate);
+
         axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + coordinate.latitude + ',' + coordinate.longitude + '&key=AIzaSyC-H415RwIwooot2IeOqn9SsX1jEof8QxA')
             .then(response => {
                 let address = response.data.results[0].formatted_address.toString().split(/,/);
                 this.setState({currentMarkerAddress: (address[0] + "," + address[1] + "," + address[2])});
+                onAddressChange((address[0] + "," + address[1] + "," + address[2]));
             }).catch((error) => {
         });
     }
@@ -101,7 +102,7 @@ ChooseAddressStep.propTypes = propTypes;
 ChooseAddressStep.defaultProps = defaultProps;
 
 const styles = StyleSheet.create({
-    container: StyleSheet.flatten(map.container),
+    container: {flex:1},
     map: StyleSheet.flatten(map.content),
 
     loginLocationButton: {

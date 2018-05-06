@@ -7,11 +7,14 @@ import Profile from '../screens/Profile'
 import {NavigationComponent} from 'react-native-material-bottom-navigation'
 import {Icon} from "react-native-elements";
 
+export const tabNavigatorHeight=50;
+
 export const MainTabNavigator = TabNavigator(
     {
+        Profile: {screen: Profile, navigationOptions: {header: null}},
         Home: {screen: Home, navigationOptions: {header: null}},
         DealsMap: {screen: DealsMap, navigationOptions: {header: null}},
-        Profile: {screen: Profile, navigationOptions: {header: null}},
+
         ProfileSettings: {screen: ProfileSettings, navigationOptions: {header: null}},
     },
     {
@@ -24,7 +27,8 @@ export const MainTabNavigator = TabNavigator(
                     borderTopLeftRadius: 5,
                     borderTopRightRadius: 5,
                     borderWidth: 0.2,
-                    borderColor: "#95a5a6"
+                    borderColor: "#95a5a6",
+                    height:tabNavigatorHeight
                 },
                 labelColor: '#2c3e50',
                 activeLabelColor: '#27ae60',

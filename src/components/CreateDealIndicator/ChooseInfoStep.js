@@ -46,6 +46,7 @@ export default class ChooseInfoStep extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            renderCount:0,
             teamType: "Tất cả",
             age: "Tất cả",
             district: "Tất cả",
@@ -64,7 +65,7 @@ export default class ChooseInfoStep extends Component {
 
     }
 
-    componentWillMount(){
+    forceUpdateEvent(){
         const {onTeamTypeChange,onAgeChange,onDistrictChange,onDealTypeChange,onDateChange,onTimeStartChange,onTimeEndChange}=this.props;
         onTeamTypeChange(this.state.teamType);
         onAgeChange(this.state.age);
@@ -136,19 +137,31 @@ export default class ChooseInfoStep extends Component {
         return new Date(today.getFullYear(), today.getMonth(), today.getDate() + addition, 0, 0, 0, 0);
     };
 
+    shouldComponentUpdate(){
+        if (this.state.renderCount===0){
+
+            this.forceUpdateEvent();
+            this.setState({renderCount:1});
+        }
+        this.forceUpdate();
+        return true;
+
+    }
+
     render() {
         const {style} = this.props;
+
         return (
             <View style={[styles.container, style]}>
                 <ScrollView style={styles.scrollView}>
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Loại đội bóng :</Text>
                         <ModalDropdown
-                            style={styles.modalDropDownContentView} options={filterOptions.teamType}
+                            style={styles.modalDropDownContainerView} options={filterOptions.teamType}
                             dropdownStyle={styles.dropDownStyle} dropdownTextStyle={styles.dropDownTextStyle}
                             defaultIndex={0}
                             onSelect={this.onTeamTypeChange}>
-                            <View style={{flexDirection: 'row'}}>
+                            <View style={styles.modalDropDownContentView}>
                                 <Text style={styles.chosenText}>{this.state.teamType}</Text>
                                 <Icon style={{alignSelf: 'flex-end'}} name="keyboard-arrow-down" size={height(3)}/>
                             </View>
@@ -158,10 +171,10 @@ export default class ChooseInfoStep extends Component {
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Độ tuổi :</Text>
                         <ModalDropdown
-                            style={styles.modalDropDownContentView} options={filterOptions.age}
+                            style={styles.modalDropDownContainerView} options={filterOptions.age}
                             dropdownStyle={styles.dropDownStyle} dropdownTextStyle={styles.dropDownTextStyle}
                             onSelect={this.onAgeChange}>
-                            <View style={{flexDirection: 'row'}}>
+                            <View style={styles.modalDropDownContentView}>
                                 <Text style={styles.chosenText}>{this.state.age}</Text>
                                 <Icon style={{alignSelf: 'flex-end'}} name="keyboard-arrow-down" size={height(3)}/>
                             </View>
@@ -171,10 +184,10 @@ export default class ChooseInfoStep extends Component {
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Khu vực :</Text>
                         <ModalDropdown
-                            style={styles.modalDropDownContentView} options={filterOptions.district}
+                            style={styles.modalDropDownContainerView} options={filterOptions.district}
                             dropdownStyle={styles.dropDownStyle} dropdownTextStyle={styles.dropDownTextStyle}
                             onSelect={this.onDistrictChange}>
-                            <View style={{flexDirection: 'row'}}>
+                            <View style={styles.modalDropDownContentView}>
                                 <Text style={styles.chosenText}>{this.state.district}</Text>
                                 <Icon style={{alignSelf: 'flex-end'}} name="keyboard-arrow-down" size={height(3)}/>
                             </View>
@@ -184,10 +197,10 @@ export default class ChooseInfoStep extends Component {
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Loại kèo :</Text>
                         <ModalDropdown
-                            style={styles.modalDropDownContentView} options={filterOptions.dealType}
+                            style={styles.modalDropDownContainerView} options={filterOptions.dealType}
                             dropdownStyle={styles.dropDownStyle} dropdownTextStyle={styles.dropDownTextStyle}
                             onSelect={this.onDealTypeChange}>
-                            <View style={{flexDirection: 'row'}}>
+                            <View style={styles.modalDropDownContentView}>
                                 <Text style={styles.chosenText}>{this.state.dealType}</Text>
                                 <Icon style={{alignSelf: 'flex-end'}} name="keyboard-arrow-down" size={height(3)}/>
                             </View>
@@ -198,7 +211,7 @@ export default class ChooseInfoStep extends Component {
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Ngày :</Text>
                         <DatePicker
-                            style={styles.modalDropDownContentView} customStyles={datePickerStyle}
+                            style={styles.modalDropDownContainerView} customStyles={datePickerStyle}
                             date={this.state.date} showIcon={false}
                             mode="date" format="DD-MM-YYYY"
                             minDate={new Date()} maxDate={this.maxDate(7)}
@@ -244,15 +257,18 @@ ChooseInfoStep.propTypes = propTypes;
 ChooseInfoStep.defaultProps = defaultProps;
 
 const styles = StyleSheet.create({
-    container: {flex: 1,},
+    container: {flex: 1,margin:10},
     scrollView: {height: '90%', width: '100%', flexGrow: 9},
 
     dropDownStyle: {width: '85%', marginLeft: 10},
     dropDownTextStyle: {textAlign: 'right'},
     chosenText: StyleSheet.flatten(blackText.subTitle),
-    modalDropDownContentView: {
+    modalDropDownContainerView: {
         width: '85%', marginLeft: 10, alignItems: 'flex-end',
         backgroundColor: '#2ecc71', borderRadius: 10,
+    },
+    modalDropDownContentView:{
+      flexDirection:'row',width:'100%'
     },
 
     timePickerStyle: {

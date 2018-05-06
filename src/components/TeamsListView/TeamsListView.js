@@ -7,25 +7,25 @@ import Accordion from 'react-native-collapsible/Accordion';
 
 
 const propTypes = ({
-    deals: PropTypes.any,
+    teams: PropTypes.any,
     style: PropTypes.any,
     onCallPress: PropTypes.func,
-    onMakeDealPress:PropTypes.func,
+    onFollowTeamPress:PropTypes.func,
     onViewTeamPress:PropTypes.func,
 });
 
 const defaultProps = {
-    deals: [{url: "", name: "", teamType: "", age: "", position: "", time1: "", time2: "",dealType:""}],
+    teams: [{url: "", name: "", captain:""}],
     style: {},
     onCallPress() {
     },
-    onMakeDealPress(){
+    onFollowTeamPress(){
     },
     onViewTeamPress(){
     }
 };
 
-export default class DealsListView extends Component {
+export default class TeamsListView extends Component {
     constructor(props) {
         super(props);
     }
@@ -35,7 +35,7 @@ export default class DealsListView extends Component {
             <View style={[styles.container, this.props.style]}>
                 <Accordion initiallyActiveSection={null} expanded={false} activeOpacity={0.5}
                            underlayColor="#2ecc71" align="bottom"
-                           sections={this.props.deals}
+                           sections={this.props.teams}
                            renderHeader={
                                (section, i, isActive, sections) =>
                                    <DealsHeader section={section}/>
@@ -45,7 +45,7 @@ export default class DealsListView extends Component {
                                    <DealsContent section={section}
                                                  onCallPress={this.props.onCallPress}
                                                  onViewTeamPress={this.props.onViewTeamPress}
-                                                 onMakeDealPress={this.props.onMakeDealPress}
+                                                 onMakeDealPress={this.props.onFollowTeamPress}
 
                                    />
                            }
@@ -57,8 +57,8 @@ export default class DealsListView extends Component {
 }
 
 
-DealsListView.propTypes = propTypes;
-DealsListView.defaultProps = defaultProps;
+TeamsListView.propTypes = propTypes;
+TeamsListView.defaultProps = defaultProps;
 
 const styles = StyleSheet.create({
     container: {flex: 1}

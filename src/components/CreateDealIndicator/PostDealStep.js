@@ -24,7 +24,7 @@ export default class PostDealStep extends Component {
 
                 <View style={styles.subContentContainer}>
                     <Text style={styles.subTitleText}>Loại đội bóng :</Text>
-                    <Text style={styles.chosenText}>{deal.teamType}</Text>
+                    <Text style={styles.chosenText}>{deal.type}</Text>
                 </View>
 
                 <View style={styles.subContentContainer}>
@@ -64,7 +64,7 @@ PostDealStep.defaultProps = defaultProps;
 const styles = StyleSheet.create({
     container: {flex: 1},
     stepButtonContainer: {flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', margin: 10},
-    subContentContainer: {margin: 10, width: '100%', justifyContent: 'space-between'},
+    subContentContainer: {margin: 10, width: '100%', justifyContent: 'space-between', flexDirection:'row'},
     subTitleText: StyleSheet.flatten(blackText.data),
     contentText: StyleSheet.flatten(blackText.data),
 

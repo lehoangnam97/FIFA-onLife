@@ -11,13 +11,14 @@ import ChooseInfoStep from "./ChooseInfoStep";
 import ChooseAddressStep from "./ChooseAddressStep";
 import PostDealStep from "./PostDealStep";
 import {whiteText} from "../../styles/text";
+import {defaultRegion} from "../../config/map";
+
 
 const propTypes = ({
     style: PropTypes.any,
     onPressPostDeal: PropTypes.func,
     onPressBack: PropTypes.func,
     onDealChange: PropTypes.func,
-
 });
 
 const defaultProps = {
@@ -31,30 +32,37 @@ const defaultProps = {
 };
 
 
+let date=new Date();
+let time1= new Date(0, 0, 0, new Date().getHours(), new Date().getMinutes(), 0, 0);
+let time2=new Date(0, 0, 0, new Date().getHours() + 1, new Date().getMinutes(), 0, 0);
+
+
 export default class CreateDealIndicator extends Component {
     constructor(props) {
         super(props);
         this.state = {
             deal: {
                 id: "",
-                type: "",
-                latitude: "",
-                longitude: "",
-                position: "",
-                age: "",
-                dealType: "",
+                latitude: defaultRegion.latitude,
+                longitude: defaultRegion.longitude,
+                position: "Tất cả",
+                type: "Tất cả",
+                age: "Tất cả",
+                district: "Tất cả",
+                dealType:"Khác",
                 date: "",
-                time1: "",
-                time2: "",
+                time1:"",
+                time2:"",
+                addressText:"",
             },
             currentStep: 0,
             alert: "Thành công",
             alertVisible: false,
             progressVisible: false,
         };
+
         this.onPressPostDeal = this.onPressPostDeal.bind(this);
         this.onPressBack = this.onPressBack.bind(this);
-
         this.onLatitudeChange = this.onLatitudeChange.bind(this);
         this.onLongitudeChange = this.onLongitudeChange.bind(this);
         this.onDealChange = this.onDealChange.bind(this);
@@ -139,6 +147,9 @@ export default class CreateDealIndicator extends Component {
         this.onDealChange(newDeal);
     };
 
+    onAddressChange(address){
+        this.setState({addressText:address});
+    }
 
     renderStep() {
         if (this.state.currentStep === 0)
@@ -159,6 +170,7 @@ export default class CreateDealIndicator extends Component {
             return (<ChooseAddressStep
                 onLatitudeChange={this.onLatitudeChange}
                 onLongitudeChange={this.onLongitudeChange}
+                onAddressChange={this.onAddressChange}
                 onPressFollowingStep={() => {
                     this.setState({currentStep: 2})
                 }}
@@ -176,7 +188,8 @@ export default class CreateDealIndicator extends Component {
             let newStep = this.state.currentStep - 1;
             this.setState({currentStep: newStep});
         }
-        else this.setState({alertVisible:false});
+        else  this.setState({alertVisible:false});
+
     };
     onPressFollowingStep = () => {
         if (this.state.currentStep < 2) {
@@ -207,7 +220,7 @@ export default class CreateDealIndicator extends Component {
                         <Text style={styles.stepButtonText}>Trở về</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.stepButton} onPress={this.onPressFollowingStep}>
-                        <Text style={styles.stepButtonText}>Đăng kèo</Text>
+                        <Text style={styles.stepButtonText}>{this.state.currentStep!==2?"Tiếp theo":"Đăng kèo"}</Text>
                         <Icon size={22} name="keyboard-arrow-right" color="white"/>
                     </TouchableOpacity>
                 </View>
@@ -239,20 +252,22 @@ CreateDealIndicator.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-    container: {flex: 1},
+    container: {flex: 1, backgroundColor:'white'},
     stepButtonContainer: {
         flexWrap: 'wrap',
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
-        position: 'absolute',
-        marginTop: height(90)
+        backgroundColor:'transparent'
     },
     stepButtonText: StyleSheet.flatten(whiteText.subTitle),
     stepButton: {
-        width: '30%', flexDirection: 'row', justifyContent: 'center',
+        width: '30%', flexDirection: 'row',
+        height:30,
         borderRadius: 30,
-        backgroundColor: '#27ae60', alignItems: 'center'
+        backgroundColor: '#27ae60', alignItems: 'center',
+        justifyContent: 'center',
+        margin:3
     },
 });
 

@@ -28,7 +28,7 @@ const propTypes = ({
 });
 
 const defaultProps = {
-    deal: {url: "", name: "", type: "",dealType:"", age: "", position: "", time1: "", time2: ""},
+    deal: {url: "", name: "", type: "", dealType: "", age: "", position: "", time1: "", time2: ""},
     style: {},
     draggableRange: {top: 200, bottom: 5},
     showBackdrop: false,
@@ -133,32 +133,36 @@ export default class DealSlidingUp extends Component {
 
                     <View style={styles.infoContainer}>
 
-                        <View style={{flex: 2}}>
-                            <View style={styles.imageContainer}>
-                                <Image style={styles.image} source={{uri: deal.url}}/>
-                                <Text style={styles.nameText}> {deal.name}</Text>
-                            </View>
+                        <View style={styles.imageContainer}>
+                            <Image style={styles.image} source={{uri: deal.url}}/>
+                            <Text style={[styles.nameText,{textAlignVertical:'center', alignSelf:'center'}]}>{deal.name}</Text>
                         </View>
 
                         <View style={{flex: 3, marginTop: 10}}>
-                            <Text style={styles.infoText}> {"Tìm kèo :" + deal.type}</Text>
-                            <View style={styles.infoRowContainer}>
+                            <Text style={styles.infoText}>Tìm kèo: {deal.type}</Text>
+                            <View style={styles.infoSubContainer}>
                                 <ElementsIcon name="location-on" size={20} color="#2c3e50"/>
-                                <Text style={styles.infoText}> {deal.position}</Text>
-                            </View>
-
-                            <View style={styles.infoRowContainer}>
-                                <ElementsIcon name="date-range" size={20} color="#2c3e50"/>
-                                <Text style={styles.infoText}>{" " + deal.dealType}</Text>
+                                <Text style={styles.infoText}>Khu vực: {deal.position}</Text>
                             </View>
 
 
-                            <View style={styles.infoRowContainer}>
+                            <View style={styles.infoSubContainer}>
+                                <ElementsIcon name="gavel" size={20} color="#2c3e50"/>
+                                <Text style={styles.infoText}>Loại kèo: {deal.dealType}</Text>
+                            </View>
+
+                            <View style={styles.infoSubContainer}>
+                                <ElementsIcon name="perm-identity" size={20} color="#2c3e50"/>
+                                <Text style={styles.infoText}>Độ tuổi: {deal.age}</Text>
+                            </View>
+
+
+                            <View style={styles.infoSubContainer}>
                                 <ElementsIcon name="date-range" size={20} color="#2c3e50"/>
                                 <Text style={styles.infoText}>{" " + deal.date}</Text>
                             </View>
 
-                            <View style={styles.infoRowContainer}>
+                            <View style={styles.infoSubContainer}>
                                 <ElementsIcon name="access-time" size={20} color="#2c3e50"/>
                                 <Text style={styles.infoText}>{"  " + deal.time1}</Text>
                                 <Text style={styles.infoText}>{"  " + deal.time2}</Text>
@@ -173,7 +177,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onCallPress();
                                           }}>
-                            <ElementsIcon size={28} name="call" color="#16a085"/>
+                            <ElementsIcon size={25} name="call" color="#16a085"/>
                             <Text style={styles.buttonText}>Liên hệ</Text>
                         </TouchableOpacity>
 
@@ -181,7 +185,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onMakeDealPress();
                                           }}>
-                            <ElementsIcon size={28} name="call" color="#16a085"/>
+                            <ElementsIcon size={25} name="call" color="#16a085"/>
                             <Text style={styles.buttonText}>Mời đấu</Text>
                         </TouchableOpacity>
 
@@ -189,7 +193,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onViewTeamPress();
                                           }}>
-                            <ElementsIcon size={28} name="person-add" color="#16a085"/>
+                            <ElementsIcon size={25} name="person-add" color="#16a085"/>
                             <Text style={styles.buttonText}>Thông tin đội</Text>
                         </TouchableOpacity>
 
@@ -205,27 +209,26 @@ DealSlidingUp.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-    container: {width: '100%', height: 200, borderRadius: 5, elevation: 3, backgroundColor:'white'},
+    container: {width: '100%', height: 250, borderRadius: 5, elevation: 5, backgroundColor: 'white'},
 
     dragHandleView: {alignItems: 'center', justifyContent: 'center', height: 5, width: '100%'},
 
-    imageContainer: {alignItems: 'center', height: 100},
+    imageContainer: { flex: 2},
 
-    image: {width: '15%', aspectRatio: 1, margin: 15},
+    infoContainer: {flex: 2, justifyContent: 'center', flexDirection: 'row'},
+
+    image: {width: '50%', aspectRatio: 1, alignSelf: 'center'},
+
+    infoSubContainer: {flexDirection: 'row'},
 
     nameText: StyleSheet.flatten(blackText.subTitle),
-
-
-    infoRowContainer: {flexDirection: 'row', alignItems: 'center'},
 
     infoText: StyleSheet.flatten(blackText.data),
 
 
-    infoContainer: {flex: 2, justifyContent: 'center', flexDirection: 'row', marginTop: 10},
-
     buttonsContainer: {flexDirection: 'row', flex: 1, marginTop: 10, justifyContent: 'center'},
 
-    button: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+    button: {flex: 0.8, alignItems: 'center', justifyContent: 'center'},
 
     buttonText: StyleSheet.flatten(greenText.data)
 });
