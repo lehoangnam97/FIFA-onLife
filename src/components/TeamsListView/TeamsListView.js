@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Alert} from 'react-native'
 import PropTypes from 'prop-types'
-import {DealsContent, DealsHeader} from './DealsRow'
+import {TeamHeader, TeamContent} from './TeamsRow'
 
 import Accordion from 'react-native-collapsible/Accordion';
 
@@ -38,11 +38,11 @@ export default class TeamsListView extends Component {
                            sections={this.props.teams}
                            renderHeader={
                                (section, i, isActive, sections) =>
-                                   <DealsHeader section={section}/>
+                                   <TeamHeader section={section}/>
                            }
                            renderContent={
                                (section, i, isActive, sections) =>
-                                   <DealsContent section={section}
+                                   <TeamContent section={section}
                                                  onCallPress={this.props.onCallPress}
                                                  onViewTeamPress={this.props.onViewTeamPress}
                                                  onMakeDealPress={this.props.onFollowTeamPress}

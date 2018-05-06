@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native'
 import {blackText, greenText, whiteText} from "../../styles/text";
 
-export class DealsHeader extends Component {
+export class TeamHeader extends Component {
     render() {
         const {section, index, isActive, sections} = this.props;
         return (
@@ -20,7 +20,7 @@ export class DealsHeader extends Component {
     }
 }
 
-export class DealsContent extends Component {
+export class TeamContent extends Component {
     render() {
         const {section, index, isActive, sections,onCallPress, onFollowTeamPress , onViewTeamPress } = this.props;
         return (
