@@ -3,7 +3,7 @@ import {TabNavigator} from 'react-navigation';
 import DealsMap from '../screens/DealsMap'
 import Home from "../screens/Home";
 import ProfileSettings from "../screens/ProfileSettings"
-import Profile from '../screens/Profile'
+import Profile from '../screens/LoginProfile'
 import {NavigationComponent} from 'react-native-material-bottom-navigation'
 import {Icon} from "react-native-elements";
 

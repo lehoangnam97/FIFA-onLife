@@ -6,5 +6,6 @@ import CreateDealIndicator from "./src/components/CreateDealIndicator/CreateDeal
 
 
 import { YellowBox } from 'react-native';
+import Profile from "./src/screens/LoginProfile";
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-AppRegistry.registerComponent('FIFAonLife', () => App);
+AppRegistry.registerComponent('FIFAonLife', () => Profile);
