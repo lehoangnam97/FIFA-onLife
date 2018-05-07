@@ -10,7 +10,6 @@ export class TeamHeader extends Component {
                 <View style={headerStyles.imageContainer}>
                     <Image style={headerStyles.image} source={{uri: section.url}}/>
                     <Text style={headerStyles.title}>{section.name}</Text>
-
                 </View>
                 <View style={headerStyles.infoContainer}>
                     <Text style={headerStyles.title}>{section.captain}</Text>
@@ -40,7 +39,7 @@ export class TeamContent extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={contentStyles.whiteButton}
-                                  onCall={() => {
+                                  onPress={() => {
                                       onCallPress(section);
                                   }}>
                     <Text style={contentStyles.whiteTitle}>Gọi</Text>

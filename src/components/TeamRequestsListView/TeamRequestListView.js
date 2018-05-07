@@ -12,11 +12,12 @@ const propTypes = ({
 });
 
 const defaultProps = {
-    data: [
-        {
-            name: "",
-        }
-    ],
+    data: [{
+        name: "",
+        url: "",
+        phone: "",
+
+    }],
     style: {},
     denyTeamRequest() {
     },

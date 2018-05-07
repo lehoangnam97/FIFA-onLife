@@ -44,7 +44,7 @@ export class DealsContent extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={contentStyles.whiteButton}
-                                  onCall={() => {
+                                  onPress={() => {
                                       onCallPress(section);
                                   }}>
                     <Text style={contentStyles.whiteTitle}>Gọi</Text>
