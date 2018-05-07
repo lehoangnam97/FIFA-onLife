@@ -14,7 +14,7 @@ import {iconSize} from "../styles/icon";
 import CustomModal from "../components/CustomModal";
 
 
-export default class LoginProfile extends Component {
+export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,12 +27,12 @@ export default class LoginProfile extends Component {
             },
             modalVisible: false,
         };
-        this.onSettingPress = this.onSettingPress.bind(this);
+        this.onBackPress = this.onBackPress.bind(this);
         this.onShareFacebookPress=this.onShareFacebookPress.bind(this);
         this.onShareTwitterPress=this.onShareTwitterPress.bind(this);
     }
 
-    onSettingPress() {
+    onBackPress() {
         this.setState({modalVisible: true});
     }
 
@@ -51,22 +51,12 @@ export default class LoginProfile extends Component {
 
                 <View style={styles.header}>
                     <View style={styles.headerUpper}>
-                        <TouchableOpacity style={styles.settingButton} onPress={this.onSettingPress}>
-                            <ElementsIcon name="settings" size={iconSize.header} color="white"/>
+                        <TouchableOpacity style={styles.backButton} onPress={this.onBackPress}>
+                            <ElementsIcon name="keyboard-arrow-left" size={iconSize.header} color="white"/>
                         </TouchableOpacity>
                         <Text style={styles.name}>{this.state.user.name}</Text>
                     </View>
-                    <View style={styles.headerBody}>
-                        <View style={styles.socialButtonContainer}>
-                            <TouchableOpacity onPress={this.onShareFacebookPress}>
-                                <SocialIcon iconSize={20} style={styles.socialIcon} type='facebook'/>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity onPress={this.onShareTwitterPress}>
-                                <SocialIcon iconSize={20} style={styles.socialIcon} type='twitter'/>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    <View style={styles.headerBody}/>
                     <Image style={styles.image} source={{uri: this.state.user.uri}}/>
                 </View>
 
@@ -89,11 +79,6 @@ export default class LoginProfile extends Component {
                 </View>
 
 
-                <CustomModal animationType="slide" transparent={false} visible={this.state.modalVisible}
-                             onClosePressed={() => {
-                                 this.setState({modalVisible: false})
-                             }}
-                />
             </View>
         );
     }
@@ -112,7 +97,7 @@ const styles = StyleSheet.create({
             marginLeft: 20,
             borderWidth: 2, borderColor: 'white'
         },
-        settingButton: {alignSelf: 'flex-end', padding: 10},
+        backButton: {alignSelf: 'flex-start', padding: 10},
 
         headerUpper: {flex: 1, backgroundColor: '#27ae60', justifyContent: 'space-between'},
         headerBody: {flex: 1, backgroundColor: 'white'},
