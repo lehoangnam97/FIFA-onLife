@@ -85,7 +85,7 @@ export default class DealsMap extends Component {
         let result3 = result2.slice();
         if (district !== 'Tất cả') {
             result2.map(deal => {
-                if (deal.district !== district && deal.district !== 'Tất cả') result3.pop(deal);
+                if (deal.position !== district && deal.district !== 'Tất cả') result3.pop(deal);
             })
         }
         this.setState({dealsFilter: result3})
@@ -186,10 +186,6 @@ export default class DealsMap extends Component {
                     renderIcon={active => active === false ?
                         (<ElementsIcon name="menu" size={20} color="#16a085"/>) :
                         (<ElementsIcon name="close" size={20} color="#16a085"/>)}>
-
-                    <ActionButton.Item title="Về trang chủ" onPress={this.onPressActionBackHome}>
-                        <ElementsIcon name="home" size={20} color="#4CAF50"/>
-                    </ActionButton.Item>
 
                     <ActionButton.Item title="Lọc kèo" onPress={this.onPressActionFilter}>
                         <ElementsIcon name="filter-list" size={20} color="#4CAF50"/>

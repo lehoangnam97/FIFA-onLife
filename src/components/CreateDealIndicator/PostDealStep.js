@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
-import {greyText, whiteText, blackText} from '../../styles/text';
+import { contentText, subText} from '../../styles/text';
 import PropTypes from 'prop-types'
 
 const propTypes = ({
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     container: {flex: 1},
     stepButtonContainer: {flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', margin: 10},
     subContentContainer: {margin: 10, width: '100%', justifyContent: 'space-between', flexDirection:'row'},
-    subTitleText: StyleSheet.flatten(blackText.data),
-    contentText: StyleSheet.flatten(blackText.data),
+    subTitleText: StyleSheet.flatten(subText.contentColor),
+    contentText: StyleSheet.flatten(contentText.contentColor2),
 
 });

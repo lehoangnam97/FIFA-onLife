@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native'
-import {blackText, greenText, whiteText} from "../../styles/text";
+
+import {backgroundColor, borderColorRegular, mainColor} from "../../styles/color";
+import {contentText, subText} from "../../styles/text";
 
 export class DealsHeader extends Component {
     render() {
@@ -14,7 +16,8 @@ export class DealsHeader extends Component {
                 <View style={headerStyles.infoContainer}>
                     <Text style={headerStyles.data}>Loại kèo: {section.dealType}</Text>
                     <Text style={headerStyles.data}>Loại đội: {section.type}</Text>
-                    <Text style={headerStyles.data}>Tuổi {section.age}</Text>
+                    <Text style={headerStyles.data}>Tuổi: {section.age}</Text>
+                    <Text style={headerStyles.data}>Sân: {section.pitch}</Text>
                     <Text style={headerStyles.data}>Khu vực: {section.position}</Text>
                     <Text style={headerStyles.data}>{section.date}</Text>
                     <Text style={headerStyles.data}>{section.time1 + " - " + section.time2}</Text>
@@ -60,9 +63,9 @@ const headerStyles = StyleSheet.create({
         width: '100%',
         aspectRatio: 3,
         padding: 30,
-        borderTopWidth: 1, borderColor: '#bdc3c7',
+        borderTopWidth: 1, borderColor: borderColorRegular,
         elevation:5,
-        backgroundColor: 'white'
+        backgroundColor: backgroundColor
     },
     imageContainer:{
       flex:1
@@ -78,8 +81,8 @@ const headerStyles = StyleSheet.create({
         justifyContent: 'center',
         paddingLeft: 10
     },
-    title: StyleSheet.flatten(blackText.subTitle),
-    data: StyleSheet.flatten(blackText.data)
+    title: StyleSheet.flatten(subText.contentColor),
+    data: StyleSheet.flatten(contentText.contentColor2)
 });
 
 const contentStyles = StyleSheet.create({
@@ -89,27 +92,27 @@ const contentStyles = StyleSheet.create({
         width: '100%',
         aspectRatio: 10,
         justifyContent: 'center', alignItems: 'center',
-        backgroundColor: 'white', elevation: 5,
-        borderBottomRightRadius: 80,
-        borderBottomLeftRadius: 80,
+        backgroundColor: backgroundColor, elevation: 5,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
         paddingLeft: 20,
         paddingRight: 20,
         marginBottom: 5,
     },
     greenButton: {
-        borderRadius: 10, borderWidth: 2, borderColor: '#16a085',
+        borderRadius: 10, borderWidth: 2, borderColor: mainColor,
         alignItems: 'center', justifyContent: 'center',
         margin: 3, padding: 2,
         flex: 2
     },
     whiteButton: {
-        borderRadius: 10, backgroundColor: '#16a085',
+        borderRadius: 10, backgroundColor: mainColor,
         margin: 3, padding: 2,
         alignItems: 'center', justifyContent: 'center',
         flex: 1
     },
-    whiteTitle: StyleSheet.flatten(whiteText.subTitle),
-    greenTitle: StyleSheet.flatten(greenText.subTitle)
+    whiteTitle: StyleSheet.flatten(subText.whiteColor),
+    greenTitle: StyleSheet.flatten(subText.mainColor)
 });
 
 

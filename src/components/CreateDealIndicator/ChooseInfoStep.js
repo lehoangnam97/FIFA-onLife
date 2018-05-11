@@ -5,9 +5,11 @@ import DatePicker from "react-native-datepicker";
 import {Icon} from 'react-native-elements';
 import filterOptions from '../../ultils/filterOptions';
 import datePickerStyle from '../../styles/datePicker';
-import {greyText, whiteText, blackText} from '../../styles/text';
+
 import {height} from 'react-native-dimension';
 import PropTypes from 'prop-types'
+import {backgroundColor2} from "../../styles/color";
+import {contentText, subText} from "../../styles/text";
 
 
 const propTypes = ({
@@ -262,10 +264,10 @@ const styles = StyleSheet.create({
 
     dropDownStyle: {width: '85%', marginLeft: 10},
     dropDownTextStyle: {textAlign: 'right'},
-    chosenText: StyleSheet.flatten(blackText.subTitle),
+    chosenText: StyleSheet.flatten(subText.contentColor),
     modalDropDownContainerView: {
         width: '85%', marginLeft: 10, alignItems: 'flex-end',
-        backgroundColor: '#2ecc71', borderRadius: 10,
+        backgroundColor: backgroundColor2, borderRadius: 10,
     },
     modalDropDownContentView:{
       flexDirection:'row',width:'100%'
@@ -273,10 +275,10 @@ const styles = StyleSheet.create({
 
     timePickerStyle: {
         width: '30%', marginLeft: 10, marginRight: 20, alignItems: 'flex-end',
-        backgroundColor: '#2ecc71', borderRadius: 10
+        backgroundColor: backgroundColor2, borderRadius: 10
     },
     subContentContainer: {margin: 10, width: '100%'},
-    subTitleText: StyleSheet.flatten(greyText.subTitle),
-    contentText: StyleSheet.flatten(greyText.data),
+    subTitleText: StyleSheet.flatten(subText.contentColor),
+    contentText: StyleSheet.flatten(contentText.contentColor),
 
 });

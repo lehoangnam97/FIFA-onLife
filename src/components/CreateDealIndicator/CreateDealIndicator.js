@@ -10,8 +10,13 @@ import PropTypes from 'prop-types'
 import ChooseInfoStep from "./ChooseInfoStep";
 import ChooseAddressStep from "./ChooseAddressStep";
 import PostDealStep from "./PostDealStep";
-import {whiteText} from "../../styles/text";
+import {subText} from "../../styles/text";
 import {defaultRegion} from "../../config/map";
+import {
+    backgroundColor, backgroundColor2, contentColor, contentColor2, mainColor,
+    mainColor2
+} from "../../styles/color";
+import {iconSize} from "../../styles/icon";
 
 
 const propTypes = ({
@@ -216,12 +221,12 @@ export default class CreateDealIndicator extends Component {
 
                 <View style={styles.stepButtonContainer}>
                     <TouchableOpacity style={styles.stepButton} onPress={this.onPressPreviousStep}>
-                        <Icon size={22} name="keyboard-arrow-left" color="white"/>
+                        <Icon size={iconSize.small} name="keyboard-arrow-left" color={backgroundColor}/>
                         <Text style={styles.stepButtonText}>Trở về</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.stepButton} onPress={this.onPressFollowingStep}>
                         <Text style={styles.stepButtonText}>{this.state.currentStep!==2?"Tiếp theo":"Đăng kèo"}</Text>
-                        <Icon size={22} name="keyboard-arrow-right" color="white"/>
+                        <Icon size={iconSize.small} name="keyboard-arrow-right" color={backgroundColor}/>
                     </TouchableOpacity>
                 </View>
 
@@ -252,7 +257,7 @@ CreateDealIndicator.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-    container: {flex: 1, backgroundColor:'white'},
+    container: {flex: 1, backgroundColor:backgroundColor},
     stepButtonContainer: {
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -260,12 +265,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor:'transparent'
     },
-    stepButtonText: StyleSheet.flatten(whiteText.subTitle),
+    stepButtonText: StyleSheet.flatten(subText.whiteColor),
     stepButton: {
         width: '30%', flexDirection: 'row',
         height:30,
         borderRadius: 30,
-        backgroundColor: '#27ae60', alignItems: 'center',
+        backgroundColor: mainColor, alignItems: 'center',
         justifyContent: 'center',
         margin:3
     },
@@ -276,21 +281,21 @@ const customStyles = {
     currentStepIndicatorSize: 55,
     separatorStrokeWidth: 2,
     currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: '#16a085',
+    stepStrokeCurrentColor: mainColor2,
     stepStrokeWidth: 3,
-    stepStrokeFinishedColor: '#1abc9c',
-    stepStrokeUnFinishedColor: '#aaaaaa',
-    separatorFinishedColor: '#1abc9c',
-    separatorUnFinishedColor: '#aaaaaa',
-    stepIndicatorFinishedColor: '#1abc9c',
-    stepIndicatorUnFinishedColor: '#ffffff',
-    stepIndicatorCurrentColor: '#16a085',
+    stepStrokeFinishedColor: mainColor2,
+    stepStrokeUnFinishedColor: backgroundColor2,
+    separatorFinishedColor: mainColor2,
+    separatorUnFinishedColor: backgroundColor2,
+    stepIndicatorFinishedColor: mainColor2,
+    stepIndicatorUnFinishedColor: backgroundColor2,
+    stepIndicatorCurrentColor: mainColor,
     stepIndicatorLabelFontSize: 13,
     currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: '#ffffff',
-    stepIndicatorLabelFinishedColor: '#ffffff',
-    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-    labelColor: '#999999',
+    stepIndicatorLabelCurrentColor: backgroundColor2,
+    stepIndicatorLabelFinishedColor: backgroundColor2,
+    stepIndicatorLabelUnFinishedColor: contentColor2,
+    labelColor: contentColor2,
     labelSize: 13,
-    currentStepLabelColor: '#2c3e50'
+    currentStepLabelColor: contentColor
 };

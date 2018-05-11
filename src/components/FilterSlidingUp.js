@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types'
-import {blackText, greenText} from "../styles/text";
 import ModalDropdown from "react-native-modal-dropdown";
 import filterOptions from '../ultils/filterOptions'
 import SlidingUpPanel from 'rn-sliding-up-panel';
+import {contentText, subText} from "../styles/text";
+import {backgroundColor, backgroundColor2} from "../styles/color";
 
 const propTypes = ({
     style: PropTypes.any,
@@ -51,7 +52,7 @@ export default class FilterSlidingUp extends Component {
             district: "Tất cả",
             draggable: true,
         };
-        this.onFilterChange=this.onFilterChange.bind(this);
+        this.onFilterChange = this.onFilterChange.bind(this);
         this.onTeamTypeFilterChange = this.onTeamTypeFilterChange.bind(this);
         this.onAgeFilterChange = this.onAgeFilterChange.bind(this);
         this.onDistrictFilterChange = this.onDistrictFilterChange.bind(this);
@@ -82,12 +83,12 @@ export default class FilterSlidingUp extends Component {
         this.setState({district: district, draggable: true});
         this.onDraggableChange(true);
         onDistrictFilterChange(district);
-       this.onFilterChange();
+        this.onFilterChange();
     }
 
     onFilterChange() {
         const {onFilterChange} = this.props;
-        onFilterChange(this.state.teamType,this.state.age,this.state.district);
+        onFilterChange(this.state.teamType, this.state.age, this.state.district);
     }
 
 
@@ -138,7 +139,7 @@ export default class FilterSlidingUp extends Component {
                     <View style={styles.slidingContent}>
                         <View style={styles.filterContainer}>
                             <View
-                                style={[styles.filterNameContainer, {backgroundColor: (this.state.teamType === 'Tất cả') ? '#c0392b' : '#27ae60'}]}>
+                                style={[styles.filterNameContainer, {backgroundColor: (this.state.teamType === 'Tất cả') ? backgroundColor : backgroundColor2}]}>
                                 <Text style={styles.filterNameText}>Loại đội : </Text>
                             </View>
 
@@ -159,7 +160,7 @@ export default class FilterSlidingUp extends Component {
 
                         <View style={styles.filterContainer}>
                             <View
-                                style={[styles.filterNameContainer, {backgroundColor: (this.state.age === 'Tất cả') ? '#c0392b' : '#27ae60'}]}>
+                                style={[styles.filterNameContainer, {backgroundColor: (this.state.age === 'Tất cả') ? backgroundColor : backgroundColor2}]}>
                                 <Text style={styles.filterNameText}>Age : </Text>
                             </View>
                             <ModalDropdown
@@ -180,7 +181,7 @@ export default class FilterSlidingUp extends Component {
 
                         <View style={styles.filterContainer}>
                             <View
-                                style={[styles.filterNameContainer, {backgroundColor: (this.state.district === 'Tất cả') ? '#c0392b' : '#27ae60'}]}>
+                                style={[styles.filterNameContainer, {backgroundColor: (this.state.district === 'Tất cả') ?backgroundColor :backgroundColor2}]}>
                                 <Text style={styles.filterNameText}>District : </Text>
                             </View>
 
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
 
         slidingTitle: {justifyContent: 'center', width: '100%', alignItems: 'center'},
 
-        titleText: StyleSheet.flatten(blackText.title),
+        titleText: StyleSheet.flatten(subText.contentColor),
 
         slidingContent: {flex: 1},
 
@@ -221,7 +222,7 @@ const styles = StyleSheet.create({
 
         filterNameContainer: {borderRadius: 3, margin: 10, padding: 5, justifyContent: 'center', alignItems: 'center'},
 
-        filterNameText: {color: '#f5f6fa', fontFamily: 'helveticaneuemedium'},
+        filterNameText: StyleSheet.flatten(contentText.contentColor),
 
         modal: {justifyContent: 'center', marginRight: 10},
 
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
 
         dropDownStyle: {width: 100, height: 150, alignItems: 'stretch'},
 
-        selectedText: StyleSheet.flatten(blackText.data),
+        selectedText: StyleSheet.flatten(subText.contentColor),
 
 
     }

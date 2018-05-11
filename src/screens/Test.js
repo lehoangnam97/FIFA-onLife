@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native'
 import RelatedDealsListView from "../components/RelatedDealsListView/RelatedDealsListView";
+import CreateDealIndicator from "../components/CreateDealIndicator/CreateDealIndicator";
 
 export default class Test extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ export default class Test extends Component {
     render() {
         return (
             <View style={{flex: 1, backgroundColor: '#3498db'}}>
-                <RelatedDealsListView deals={this.state.relatedDeals}  onPress={()=>{alert("123")}}/>
+                <CreateDealIndicator />
             </View>
         );
     }

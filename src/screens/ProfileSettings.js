@@ -7,6 +7,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import CircleImage from "../components/CircleImage";
 import EditProfileInput from '../components/EditProfileInput'
 import container from '../styles/container'
+import {backgroundColor, borderColorRegular} from "../styles/color";
+import {iconColor, iconSize} from "../styles/icon";
 
 export default class User extends Component {
     constructor(props) {
@@ -103,7 +105,7 @@ export default class User extends Component {
 
                         <View style={styles.textInputAboutContainer}>
                             <View style={{height: 40, justifyContent: 'center'}}>
-                                <EleIcon size={30} name="chrome-reader-mode" color="#7f8c8d"/>
+                                <EleIcon size={iconSize.regular} name="chrome-reader-mode" color={iconColor.contentColor2}/>
                             </View>
                             <TextInput
                                 placeholder="About.." multiline={true} numberOfLines={4}
@@ -140,7 +142,7 @@ const styles = StyleSheet.create({
 
     imageTouchable: {
         width: 150, height: 150,
-        backgroundColor: 'transparent', borderWidth: 2, borderColor: '#16a085', borderRadius: 85,
+        backgroundColor: 'transparent', borderWidth: 2, borderColor: borderColorRegular, borderRadius: 85,
         alignItems: 'center', justifyContent: 'center'
     },
 
@@ -153,15 +155,15 @@ const styles = StyleSheet.create({
 
     socialButton: {width: 30, height: 30},
 
-    editContainer: {flex: 1, width: '100%', alignItems: 'center', backgroundColor: 'white'},
+    editContainer: {flex: 1, width: '100%', alignItems: 'center', backgroundColor: backgroundColor},
 
     textInputAboutContainer: {
-        width: '90%', borderBottomColor: 'grey', flexDirection: 'row', justifyContent: 'flex-start'
+        width: '90%', borderBottomColor: borderColorRegular, flexDirection: 'row', justifyContent: 'flex-start'
     },
 
     textInputAbout: {
         width: '100%', height: 80, marginLeft: 20,
         textAlignVertical: 'top',
-        borderBottomWidth: 1, borderColor: '#ecf0f1'
+        borderBottomWidth: StyleSheet.hairlineWidth, borderColor: '#ecf0f1'
     },
 });

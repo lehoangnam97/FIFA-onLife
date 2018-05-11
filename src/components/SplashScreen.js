@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Animated,  Easing} from 'react-native';
+import {backgroundColor2, mainColor2} from "../styles/color";
 export default class SplashScreen extends Component{
     constructor(){
         super();
@@ -63,7 +64,7 @@ export default class SplashScreen extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#36c6c4',
+        backgroundColor:mainColor2,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'

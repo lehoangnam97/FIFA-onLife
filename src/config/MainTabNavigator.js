@@ -3,18 +3,19 @@ import {TabNavigator} from 'react-navigation';
 import DealsMap from '../screens/DealsMap'
 import Home from "../screens/Home";
 import ProfileSettings from "../screens/ProfileSettings"
-import Profile from '../screens/LoginProfile'
 import {NavigationComponent} from 'react-native-material-bottom-navigation'
 import {Icon} from "react-native-elements";
+import Profile from "../screens/Profile";
+import Test from "../screens/Test";
 
-export const tabNavigatorHeight=50;
+export const tabNavigatorHeight = 50;
 
 export const MainTabNavigator = TabNavigator(
     {
+        Test: {screen: Test, navigationOptions: {header: null}},
         Profile: {screen: Profile, navigationOptions: {header: null}},
         Home: {screen: Home, navigationOptions: {header: null}},
         DealsMap: {screen: DealsMap, navigationOptions: {header: null}},
-
         ProfileSettings: {screen: ProfileSettings, navigationOptions: {header: null}},
     },
     {
@@ -28,7 +29,7 @@ export const MainTabNavigator = TabNavigator(
                     borderTopRightRadius: 5,
                     borderWidth: 0.2,
                     borderColor: "#95a5a6",
-                    height:tabNavigatorHeight
+                    height: tabNavigatorHeight
                 },
                 labelColor: '#2c3e50',
                 activeLabelColor: '#27ae60',
@@ -36,6 +37,12 @@ export const MainTabNavigator = TabNavigator(
                 rippleColor: 'black',
                 shifting: false,
                 tabs: {
+                    Test: {
+                        label: "Test screen",
+                        icon: (<Icon size={24} name="home" color="#2c3e50"/>),
+                        activeIcon: (<Icon size={24} name="home" color="#27ae60"/>)
+                    },
+
                     Home: {
                         label: "Trang chủ",
                         icon: (<Icon size={24} name="home" color="#2c3e50"/>),

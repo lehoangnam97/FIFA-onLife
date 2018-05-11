@@ -1,74 +1,156 @@
 import {StyleSheet} from 'react-native'
+import {contentColor, contentColor2, mainColor, mainColor2 , subColor, subColor2} from "./color";
+
+const crucialSize = 20;
+const subSize = 18;
+const contentSize = 16;
 
 
-const titleSize = 20;
-const subTitleSize = 18;
-const dataSize = 16;
 
-export const blackText = StyleSheet.create({
-    title: {
+
+export const crucialText = StyleSheet.create({
+    mainColor: {
         fontWeight: 'bold',
-        color: '#2c3e50',
-        fontSize: titleSize
+        color: mainColor,
+        fontSize: crucialSize
     },
-    subTitle: {
+    mainColor2:{
         fontWeight: 'bold',
-        color: '#2c3e50',
-        fontSize: subTitleSize
+        color: mainColor2,
+        fontSize: crucialSize
     },
-    data: {
-        color: '#34495e',
-        fontSize: dataSize
-    }
-});
-export const whiteText = StyleSheet.create({
-    title: {
+    subColor:{
+        fontWeight: 'bold',
+        color: subColor,
+        fontSize: crucialSize
+    },
+
+    subColor2:{
+        fontWeight: 'bold',
+        color: subColor2,
+        fontSize: crucialSize
+    },
+
+    contentColor:{
+        fontWeight: 'bold',
+        color: contentColor,
+        fontSize: crucialSize
+    },
+    content2Color:{
+        fontWeight: 'bold',
+        color: contentColor2,
+        fontSize: crucialSize
+    },
+
+    blackColor: {
+        fontWeight: 'bold',
+        color: 'black',
+        fontSize: crucialSize
+    },
+    greyColor: {
+        color: '#7f8c8d',
+        fontSize: crucialSize
+    },
+    whiteColor:{
         fontWeight: 'bold',
         color: 'white',
-        fontSize: titleSize
+        fontSize: crucialSize
+    }
+});
+
+export const subText=StyleSheet.create({
+    mainColor: {
+        fontWeight: 'bold',
+        color: mainColor,
+        fontSize: subSize
     },
-    subTitle: {
+    mainColor2:{
+        fontWeight: 'bold',
+        color:mainColor2,
+        fontSize: subSize
+    },
+    subColor:{
+        fontWeight: 'bold',
+        color: subColor,
+        fontSize: subSize
+    },
+
+    subColor2:{
+        fontWeight: 'bold',
+        color: subColor2,
+        fontSize: subSize
+    },
+
+    contentColor:{
+        fontWeight: 'bold',
+        color: contentColor,
+        fontSize: subSize
+    },
+
+    contentColor2:{
+        fontWeight: 'bold',
+        color: contentColor2,
+        fontSize: subSize
+    },
+
+
+    blackColor: {
+        fontWeight: 'bold',
+        color: 'black',
+        fontSize: subSize
+    },
+    greyColor: {
+        color: '#7f8c8d',
+        fontSize: subSize
+    },
+    whiteColor:{
         fontWeight: 'bold',
         color: 'white',
-        fontSize: subTitleSize
-    },
-    data: {
-        color: 'white',
-        fontSize: dataSize
+        fontSize: subSize
     }
 });
 
 
-export const greenText = StyleSheet.create({
-    title: {
-        fontWeight: 'bold',
-        color: '#16a085',
-        fontSize: titleSize
+export const contentText=StyleSheet.create({
+    mainColor: {
+        color: mainColor,
+        fontSize: contentSize
     },
-    subTitle: {
-        fontWeight: 'bold',
-        color: '#16a085',
-        fontSize: subTitleSize
+    mainColor2:{
+        color: mainColor2,
+        fontSize: contentSize
     },
-    data: {
-        color: '#16a085',
-        fontSize: dataSize
-    }
-});
+    subColor:{
+        color: subColor,
+        fontSize: contentSize
+    },
 
-export const greyText=StyleSheet.create({
-    title: {
-        fontWeight: 'bold',
-        color: '#7f8c8d',
-        fontSize: titleSize
+    subColor2:{
+        color: subColor2,
+        fontSize: contentSize
     },
-    subTitle: {
-        fontWeight: 'bold',
-        color: '#7f8c8d',
-        fontSize: subTitleSize
+
+    contentColor:{
+        color: contentColor,
+        fontSize: contentSize
     },
-    data: {
+
+    contentColor2:{
+        color: contentColor2,
+        fontSize: contentSize
+    },
+
+
+    blackColor: {
+        color: 'black',
+        fontSize: contentSize
+    },
+    greyColor: {
         color: '#7f8c8d',
-        fontSize: dataSize
+        fontSize: contentSize
+    },
+    whiteColor:{
+        color: 'white',
+        fontSize: contentSize
     }
 });

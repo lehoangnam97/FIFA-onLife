@@ -10,4 +10,4 @@ import Profile from "./src/screens/LoginProfile";
 import RelatedDealsListView from "./src/components/RelatedDealsListView/RelatedDealsListView";
 import Test from "./src/screens/Test";
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-AppRegistry.registerComponent('FIFAonLife', () => Test);
+AppRegistry.registerComponent('FIFAonLife', () => App);

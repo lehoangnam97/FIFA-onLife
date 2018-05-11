@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Icon as ElementsIcon} from 'react-native-elements';
+import Icon from 'react-native-vector-icons'
 
 import {ConfirmDialog} from 'react-native-simple-dialogs';
 import PropTypes from 'prop-types'
-import {blackText, greenText} from "../styles/text";
 import SlidingUpPanel from 'rn-sliding-up-panel'
 import call from 'react-native-phone-call'
+import {contentText, subText} from "../styles/text";
+import {backgroundColor, subColor} from "../styles/color";
+import {iconColor, iconSize} from "../styles/icon";
 
 const propTypes = ({
     deal: PropTypes.any,
@@ -128,7 +131,7 @@ export default class DealSlidingUp extends Component {
                     />
 
                     <View style={styles.dragHandleView}>
-                        <ElementsIcon name="drag-handle" size={20}/>
+                        <ElementsIcon name="drag-handle" size={iconSize.regular}/>
                     </View>
 
                     <View style={styles.infoContainer}>
@@ -141,29 +144,35 @@ export default class DealSlidingUp extends Component {
                         <View style={{flex: 3, marginTop: 10}}>
                             <Text style={styles.infoText}>Tìm kèo: {deal.type}</Text>
                             <View style={styles.infoSubContainer}>
-                                <ElementsIcon name="location-on" size={20} color="#2c3e50"/>
+                                <ElementsIcon name="location-on" size={iconSize.regular} color={iconColor.contentColor2}/>
                                 <Text style={styles.infoText}>Khu vực: {deal.position}</Text>
                             </View>
 
 
                             <View style={styles.infoSubContainer}>
-                                <ElementsIcon name="gavel" size={20} color="#2c3e50"/>
+                                <ElementsIcon name="gavel" size={iconSize.regular} color={iconColor.contentColor2}/>
                                 <Text style={styles.infoText}>Loại kèo: {deal.dealType}</Text>
                             </View>
 
                             <View style={styles.infoSubContainer}>
-                                <ElementsIcon name="perm-identity" size={20} color="#2c3e50"/>
+                                <Icon name="md-football" size={iconSize.regular} color={iconColor.contentColor2}/>
+                                <Text style={styles.infoText}>Sân: {deal.dealType}</Text>
+                            </View>
+
+
+                            <View style={styles.infoSubContainer}>
+                                <ElementsIcon name="perm-identity" size={iconSize.regular} color={iconColor.contentColor2}/>
                                 <Text style={styles.infoText}>Độ tuổi: {deal.age}</Text>
                             </View>
 
 
                             <View style={styles.infoSubContainer}>
-                                <ElementsIcon name="date-range" size={20} color="#2c3e50"/>
+                                <ElementsIcon name="date-range" size={iconSize.regular} color={iconColor.contentColor2}/>
                                 <Text style={styles.infoText}>{" " + deal.date}</Text>
                             </View>
 
                             <View style={styles.infoSubContainer}>
-                                <ElementsIcon name="access-time" size={20} color="#2c3e50"/>
+                                <ElementsIcon name="access-time" size={iconSize.regular} color={iconColor.contentColor2}/>
                                 <Text style={styles.infoText}>{"  " + deal.time1}</Text>
                                 <Text style={styles.infoText}>{"  " + deal.time2}</Text>
                             </View>
@@ -177,7 +186,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onCallPress();
                                           }}>
-                            <ElementsIcon size={25} name="call" color="#16a085"/>
+                            <ElementsIcon size={iconSize.extra} name="call" color={iconColor.mainColor}/>
                             <Text style={styles.buttonText}>Liên hệ</Text>
                         </TouchableOpacity>
 
@@ -185,7 +194,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onMakeDealPress();
                                           }}>
-                            <ElementsIcon size={25} name="call" color="#16a085"/>
+                            <ElementsIcon size={iconSize.extra} name="call" color={iconColor.mainColor}/>
                             <Text style={styles.buttonText}>Mời đấu</Text>
                         </TouchableOpacity>
 
@@ -193,7 +202,7 @@ export default class DealSlidingUp extends Component {
                                           onPress={() => {
                                               this.onViewTeamPress();
                                           }}>
-                            <ElementsIcon size={25} name="person-add" color="#16a085"/>
+                            <ElementsIcon size={iconSize.extra} name="person-add" color={iconColor.mainColor}/>
                             <Text style={styles.buttonText}>Thông tin đội</Text>
                         </TouchableOpacity>
 
@@ -209,7 +218,7 @@ DealSlidingUp.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-    container: {width: '100%', height: 250, borderRadius: 5, elevation: 5, backgroundColor: 'white'},
+    container: {width: '100%', height: 250, borderRadius: 5, elevation: 5, backgroundColor: backgroundColor},
 
     dragHandleView: {alignItems: 'center', justifyContent: 'center', height: 5, width: '100%'},
 
@@ -221,14 +230,14 @@ const styles = StyleSheet.create({
 
     infoSubContainer: {flexDirection: 'row'},
 
-    nameText: StyleSheet.flatten(blackText.subTitle),
+    nameText: StyleSheet.flatten(subText.contentColor),
 
-    infoText: StyleSheet.flatten(blackText.data),
+    infoText: StyleSheet.flatten(contentText.contentColor2),
 
 
     buttonsContainer: {flexDirection: 'row', flex: 1, marginTop: 10, justifyContent: 'center'},
 
     button: {flex: 0.8, alignItems: 'center', justifyContent: 'center'},
 
-    buttonText: StyleSheet.flatten(greenText.data)
+    buttonText: StyleSheet.flatten(subColor.contentColor)
 });

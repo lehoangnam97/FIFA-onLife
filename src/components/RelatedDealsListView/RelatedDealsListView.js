@@ -14,6 +14,7 @@ const propTypes = ({
 const defaultProps = {
     deals: [{
         nameRq: "",
+        pitch:"",
         urlRq: "",
         name: "",
         url: "",

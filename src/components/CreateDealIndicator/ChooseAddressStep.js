@@ -2,12 +2,15 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {Icon} from 'react-native-elements'
-import {whiteText} from "../../styles/text";
+
 import {defaultRegion, mapStyle} from "../../config/map";
 import map from '../../styles/map'
 import {width, height} from 'react-native-dimension';
 import * as axios from "axios/index";
 import PropTypes from 'prop-types'
+import {backgroundColor, } from "../../styles/color";
+import {iconColor, iconSize} from "../../styles/icon";
+import {subText} from "../../styles/text";
 
 
 const propTypes = ({
@@ -50,7 +53,7 @@ export default class ChooseAddressStep extends React.Component {
     }
 
     onPressMapView(event) {
-        const {onAddressChange,onLatitudeChange,onLongitudeChange} = this.props;
+        const {onAddressChange, onLatitudeChange, onLongitudeChange} = this.props;
         let coordinate = event.nativeEvent.coordinate;
         this.setState({loginCoordinate: coordinate});
         onLatitudeChange(coordinate.latitude);
@@ -65,7 +68,7 @@ export default class ChooseAddressStep extends React.Component {
         });
     }
 
-    onPressLoginLocationButton(){
+    onPressLoginLocationButton() {
         this.mapRef.animateToCoordinate(this.state.loginCoordinate);
     }
 
@@ -91,7 +94,7 @@ export default class ChooseAddressStep extends React.Component {
 
                 <TouchableOpacity style={styles.loginLocationButton}
                                   onPress={this.onPressLoginLocationButton}>
-                    <Icon name="my-location" size={20} color="#16a085"/>
+                    <Icon name="my-location" size={iconSize.regular} color={iconColor.contentColor2}/>
                 </TouchableOpacity>
             </View>
         );
@@ -102,7 +105,7 @@ ChooseAddressStep.propTypes = propTypes;
 ChooseAddressStep.defaultProps = defaultProps;
 
 const styles = StyleSheet.create({
-    container: {flex:1},
+    container: {flex: 1},
     map: StyleSheet.flatten(map.content),
 
     loginLocationButton: {
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         width: 40, aspectRatio: 1,
         borderRadius: 100,
-        backgroundColor: 'white',
+        backgroundColor: backgroundColor,
         alignItems: 'center', justifyContent: 'center', elevation: 5,
     },
     currentAddressTextContainer: {
@@ -119,12 +122,14 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: '90%', height: 50,
         alignSelf: 'center', justifyContent: 'center',
-        backgroundColor: 'white', borderRadius: 5,
+        backgroundColor: backgroundColor, borderRadius: 5,
     },
+
     currentAddressText: {
-        alignSelf: 'stretch',
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        color: '#16a085'
+        ...StyleSheet.flatten(subText.content), ...{
+            alignSelf: 'stretch',
+            textAlignVertical: 'center',
+            textAlign: 'center',
+        }
     },
 });
