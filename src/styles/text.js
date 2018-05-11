@@ -1,156 +1,156 @@
 import {StyleSheet} from 'react-native'
-import {contentColor, contentColor2, mainColor, mainColor2 , subColor, subColor2} from "./color";
+import {CONTENT_COLOR, CONTENT_COLOR_TWO, PRIMARY_COLOR, PRIMARY_COLOR_TWO , SUB_COLOR, SUB_COLOR_TWO} from "./color";
 
-const crucialSize = 20;
-const subSize = 18;
-const contentSize = 16;
-
-
+const PRIMARY_SIZE = 20;
+const SUB_SIZE = 18;
+const CONTENT_SIZE = 16;
 
 
-export const crucialText = StyleSheet.create({
-    mainColor: {
+
+
+export const CRUCIAL_TEXT_STYLES = StyleSheet.create({
+    PRIMARY_COLOR: {
         fontWeight: 'bold',
-        color: mainColor,
-        fontSize: crucialSize
+        color: PRIMARY_COLOR,
+        fontSize: PRIMARY_SIZE
     },
-    mainColor2:{
+    PRIMARY_COLOR_TWO:{
         fontWeight: 'bold',
-        color: mainColor2,
-        fontSize: crucialSize
+        color: PRIMARY_COLOR_TWO,
+        fontSize: PRIMARY_SIZE
     },
-    subColor:{
+    SUB_COLOR:{
         fontWeight: 'bold',
-        color: subColor,
-        fontSize: crucialSize
-    },
-
-    subColor2:{
-        fontWeight: 'bold',
-        color: subColor2,
-        fontSize: crucialSize
+        color: SUB_COLOR,
+        fontSize: PRIMARY_SIZE
     },
 
-    contentColor:{
+    SUB_COLOR_TWO:{
         fontWeight: 'bold',
-        color: contentColor,
-        fontSize: crucialSize
-    },
-    content2Color:{
-        fontWeight: 'bold',
-        color: contentColor2,
-        fontSize: crucialSize
+        color: SUB_COLOR_TWO,
+        fontSize: PRIMARY_SIZE
     },
 
-    blackColor: {
+    CONTENT_COLOR:{
+        fontWeight: 'bold',
+        color: CONTENT_COLOR,
+        fontSize: PRIMARY_SIZE
+    },
+    CONTENT_COLOR_TWO:{
+        fontWeight: 'bold',
+        color: CONTENT_COLOR_TWO,
+        fontSize: PRIMARY_SIZE
+    },
+
+    BLACK_COLOR: {
         fontWeight: 'bold',
         color: 'black',
-        fontSize: crucialSize
+        fontSize: PRIMARY_SIZE
     },
-    greyColor: {
+    GREY_COLOR: {
         color: '#7f8c8d',
-        fontSize: crucialSize
+        fontSize: PRIMARY_SIZE
     },
-    whiteColor:{
+    WHITE_COLOR:{
         fontWeight: 'bold',
         color: 'white',
-        fontSize: crucialSize
+        fontSize: PRIMARY_SIZE
     }
 });
 
-export const subText=StyleSheet.create({
-    mainColor: {
+export const SUB_TEXT_STYLES=StyleSheet.create({
+    PRIMARY_COLOR: {
         fontWeight: 'bold',
-        color: mainColor,
-        fontSize: subSize
+        color: PRIMARY_COLOR,
+        fontSize: SUB_SIZE
     },
-    mainColor2:{
+    PRIMARY_COLOR_TWO:{
         fontWeight: 'bold',
-        color:mainColor2,
-        fontSize: subSize
+        color:PRIMARY_COLOR_TWO,
+        fontSize: SUB_SIZE
     },
-    subColor:{
+    SUB_COLOR:{
         fontWeight: 'bold',
-        color: subColor,
-        fontSize: subSize
-    },
-
-    subColor2:{
-        fontWeight: 'bold',
-        color: subColor2,
-        fontSize: subSize
+        color: SUB_COLOR,
+        fontSize: SUB_SIZE
     },
 
-    contentColor:{
+    SUB_COLOR_TWO:{
         fontWeight: 'bold',
-        color: contentColor,
-        fontSize: subSize
+        color: SUB_COLOR_TWO,
+        fontSize: SUB_SIZE
     },
 
-    contentColor2:{
+    CONTENT_COLOR:{
         fontWeight: 'bold',
-        color: contentColor2,
-        fontSize: subSize
+        color: CONTENT_COLOR,
+        fontSize: SUB_SIZE
+    },
+
+    CONTENT_COLOR_TWO:{
+        fontWeight: 'bold',
+        color: CONTENT_COLOR_TWO,
+        fontSize: SUB_SIZE
     },
 
 
-    blackColor: {
+    BLACK_COLOR: {
         fontWeight: 'bold',
         color: 'black',
-        fontSize: subSize
+        fontSize: SUB_SIZE
     },
-    greyColor: {
+    GREY_COLOR: {
         color: '#7f8c8d',
-        fontSize: subSize
+        fontSize: SUB_SIZE
     },
-    whiteColor:{
+    WHITE_COLOR:{
         fontWeight: 'bold',
         color: 'white',
-        fontSize: subSize
+        fontSize: SUB_SIZE
     }
 });
 
 
-export const contentText=StyleSheet.create({
-    mainColor: {
-        color: mainColor,
-        fontSize: contentSize
+export const CONTENT_TEXT_STYLES=StyleSheet.create({
+    PRIMARY_COLOR: {
+        color: PRIMARY_COLOR,
+        fontSize: CONTENT_SIZE
     },
-    mainColor2:{
-        color: mainColor2,
-        fontSize: contentSize
+    PRIMARY_COLOR_TWO:{
+        color: PRIMARY_COLOR_TWO,
+        fontSize: CONTENT_SIZE
     },
-    subColor:{
-        color: subColor,
-        fontSize: contentSize
-    },
-
-    subColor2:{
-        color: subColor2,
-        fontSize: contentSize
+    SUB_COLOR:{
+        color: SUB_COLOR,
+        fontSize: CONTENT_SIZE
     },
 
-    contentColor:{
-        color: contentColor,
-        fontSize: contentSize
+    SUB_COLOR_TWO:{
+        color: SUB_COLOR_TWO,
+        fontSize: CONTENT_SIZE
     },
 
-    contentColor2:{
-        color: contentColor2,
-        fontSize: contentSize
+    CONTENT_COLOR:{
+        color: CONTENT_COLOR,
+        fontSize: CONTENT_SIZE
+    },
+
+    CONTENT_COLOR_TWO:{
+        color: CONTENT_COLOR_TWO,
+        fontSize: CONTENT_SIZE
     },
 
 
-    blackColor: {
+    BLACK_COLOR: {
         color: 'black',
-        fontSize: contentSize
+        fontSize: CONTENT_SIZE
     },
-    greyColor: {
+    GREY_COLOR: {
         color: '#7f8c8d',
-        fontSize: contentSize
+        fontSize: CONTENT_SIZE
     },
-    whiteColor:{
+    WHITE_COLOR:{
         color: 'white',
-        fontSize: contentSize
+        fontSize: CONTENT_SIZE
     }
 });

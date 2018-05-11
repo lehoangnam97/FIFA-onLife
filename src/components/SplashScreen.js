@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Animated,  Easing} from 'react-native';
-import {backgroundColor2, mainColor2} from "../styles/color";
+import {BACKGROUND_COLOR_TWO, PRIMARY_COLOR_TWO} from "../styles/color";
 export default class SplashScreen extends Component{
     constructor(){
         super();
@@ -42,7 +42,7 @@ export default class SplashScreen extends Component{
         });
         console.log(JSON.stringify(spin));
         return (
-            <View style = {styles.container}>
+            <View style = {styles.CONTAINER}>
                 <Animated.Image
                     style={{
                         width: 200,
@@ -64,7 +64,7 @@ export default class SplashScreen extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:mainColor2,
+        backgroundColor:PRIMARY_COLOR_TWO,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'

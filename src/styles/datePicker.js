@@ -1,6 +1,6 @@
 import {width,height} from 'react-native-dimension';
 
-export default  datePickerStyle = {
+export default  DATE_PICKER_STYLE = {
     dateInput:
         {
             alignItems: 'flex-start',

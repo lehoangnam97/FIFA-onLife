@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native'
 
 
-export default map = StyleSheet.create({
+export default MAP_STYLES = StyleSheet.create({
     container:{
         position: 'absolute',
         top: 0,

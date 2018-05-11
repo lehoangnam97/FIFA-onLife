@@ -1,18 +1,18 @@
-import {contentColor, contentColor2, mainColor, mainColor2, subColor, subColor2} from "./color";
+import {CONTENT_COLOR, CONTENT_COLOR_TWO, PRIMARY_COLOR, PRIMARY_COLOR_TWO, SUB_COLOR, SUB_COLOR_TWO} from "./color";
 
-export const iconSize = {
-    regular: 30,
-    extra: 40,
-    small: 20,
+export const ICON_SIZE = {
+    REGULAR: 30,
+    EXTRA: 40,
+    SMALL: 20,
 };
 
-export const iconColor = {
-    mainColor: mainColor,
-    subColor: subColor,
-    mainColor2: mainColor2,
-    subColor2: subColor2,
-    contentColor: contentColor,
-    contentColor2: contentColor2,
-    black: 'black',
-    grey: 'grey'
+export const ICON_COLOR = {
+    PRIMARY_COLOR: PRIMARY_COLOR,
+    SUB_COLOR: SUB_COLOR,
+    PRIMARY_COLOR_TWO: PRIMARY_COLOR_TWO,
+    SUB_COLOR_TWO: SUB_COLOR_TWO,
+    CONTENT_COLOR: CONTENT_COLOR,
+    CONTENT_COLOR_TWO: CONTENT_COLOR_TWO,
+    BLACK: 'black',
+    GREY: 'grey'
 };

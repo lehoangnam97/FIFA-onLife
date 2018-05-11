@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native'
 
-export default container = StyleSheet.create({
+export default CONTAINER = StyleSheet.create({
     wrap:{
         flex:1,
     },

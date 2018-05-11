@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
-import { contentText, subText} from '../../styles/text';
+import {CONTENT_TEXT_STYLES, SUB_TEXT_STYLES} from '../../styles/text';
 import PropTypes from 'prop-types'
 
 const propTypes = ({
@@ -51,7 +51,7 @@ export default class PostDealStep extends Component {
 
                 <View style={styles.subContentContainer}>
                     <Text style={styles.subTitleText}>Thời gian :</Text>
-                    <Text style={styles.contentText}>{deal.time1} - {deal.time2}</Text>
+                    <Text style={styles.chosenText}>{deal.time1} - {deal.time2}</Text>
                 </View>
             </View>
         )
@@ -64,8 +64,7 @@ PostDealStep.defaultProps = defaultProps;
 const styles = StyleSheet.create({
     container: {flex: 1},
     stepButtonContainer: {flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', margin: 10},
-    subContentContainer: {margin: 10, width: '100%', justifyContent: 'space-between', flexDirection:'row'},
-    subTitleText: StyleSheet.flatten(subText.contentColor),
-    contentText: StyleSheet.flatten(contentText.contentColor2),
-
+    subContentContainer: {margin: 10, width: '80%', justifyContent: 'space-between', flexDirection: 'row'},
+    subTitleText: StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR),
+    chosenText: StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR_TWO),
 });

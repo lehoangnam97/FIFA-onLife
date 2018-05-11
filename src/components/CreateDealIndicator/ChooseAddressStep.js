@@ -4,13 +4,13 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {Icon} from 'react-native-elements'
 
 import {defaultRegion, mapStyle} from "../../config/map";
-import map from '../../styles/map'
+import MAP_STYLES from '../../styles/map'
 import {width, height} from 'react-native-dimension';
 import * as axios from "axios/index";
 import PropTypes from 'prop-types'
-import {backgroundColor, } from "../../styles/color";
-import {iconColor, iconSize} from "../../styles/icon";
-import {subText} from "../../styles/text";
+import {BACKGROUND_COLOR, } from "../../styles/color";
+import {ICON_COLOR, ICON_SIZE} from "../../styles/icon";
+import {SUB_TEXT_STYLES} from "../../styles/text";
 
 
 const propTypes = ({
@@ -77,7 +77,7 @@ export default class ChooseAddressStep extends React.Component {
             <View style={styles.container}>
                 <MapView
                     ref={ref => this.mapRef = ref} provider={PROVIDER_GOOGLE}
-                    style={styles.map} customMapStyle={mapStyle}
+                    style={styles.map} customMapStyle={MAP_STYLES}
                     loadingEnabled={true} initialRegion={this.state.mapRegion}
                     onPress={this.onPressMapView}
                     onRegionChangeComplete={region => {
@@ -94,7 +94,7 @@ export default class ChooseAddressStep extends React.Component {
 
                 <TouchableOpacity style={styles.loginLocationButton}
                                   onPress={this.onPressLoginLocationButton}>
-                    <Icon name="my-location" size={iconSize.regular} color={iconColor.contentColor2}/>
+                    <Icon name="my-location" size={ICON_SIZE.REGULAR} color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                 </TouchableOpacity>
             </View>
         );
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         width: 40, aspectRatio: 1,
         borderRadius: 100,
-        backgroundColor: backgroundColor,
+        backgroundColor: BACKGROUND_COLOR,
         alignItems: 'center', justifyContent: 'center', elevation: 5,
     },
     currentAddressTextContainer: {
@@ -122,11 +122,11 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: '90%', height: 50,
         alignSelf: 'center', justifyContent: 'center',
-        backgroundColor: backgroundColor, borderRadius: 5,
+        backgroundColor: BACKGROUND_COLOR, borderRadius: 5,
     },
 
     currentAddressText: {
-        ...StyleSheet.flatten(subText.content), ...{
+        ...StyleSheet.flatten(SUB_TEXT_STYLES.content), ...{
             alignSelf: 'stretch',
             textAlignVertical: 'center',
             textAlign: 'center',

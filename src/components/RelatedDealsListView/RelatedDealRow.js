@@ -3,8 +3,8 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native'
 
 import {showLocation} from 'react-native-map-link'
 import {getDayOfWeek} from "../../ultils/getDayOfWeek";
-import {backgroundColor2, borderColorRegular} from "../../styles/color";
-import {contentText, crucialText, subText} from "../../styles/text";
+import {BACKGROUND_COLOR_TWO, BORDER_COLOR_REGULAR} from "../../styles/color";
+import {CONTENT_TEXT_STYLES, CRUCIAL_TEXT_STYLES, SUB_TEXT_STYLES} from "../../styles/text";
 
 
 export class RelatedDealRow extends Component {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         margin: 3,
         borderRadius: 2,
         borderWidth: StyleSheet.hairlineWidth,
-        borderColor: borderColorRegular
+        borderColor: BORDER_COLOR_REGULAR
     },
     image: {
         height: '100%',
@@ -78,10 +78,10 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         margin: 5
     },
-    vsText:{...StyleSheet.flatten(subText.contentColor2),...{alignSelf: 'center' }},
+    vsText:{...StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR_TWO),...{alignSelf: 'center' }},
 
-    nameText: {...StyleSheet.flatten(subText.contentColor) ,...{alignSelf: 'center', margin: 5}},
-    header: {flex: 2, flexDirection: 'row', backgroundColor: backgroundColor2, padding: 5},
+    nameText: {...StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR) ,...{alignSelf: 'center', margin: 5}},
+    header: {flex: 2, flexDirection: 'row', backgroundColor: BACKGROUND_COLOR_TWO, padding: 5},
 
     leftTeamHeaderContainer: {
         flex: 1, flexDirection: 'row',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     },
 
     mapText: {
-        ...StyleSheet.flatten(contentText.contentColor),
+        ...StyleSheet.flatten(CONTENT_TEXT_STYLES.CONTENT_COLOR),
         ...{
             marginLeft: 10,
             marginRight: 10,
@@ -110,8 +110,8 @@ const styles = StyleSheet.create({
         }
     },
     tail: {flexDirection: 'row', justifyContent: 'space-between', marginRight: 5, marginLeft: 5},
-    dataText: {...StyleSheet.flatten(contentText.contentColor2), ...{marginLeft: 10, marginRight: 10}},
-    stateText: {...StyleSheet.flatten(subText.mainColor)}
+    dataText: {...StyleSheet.flatten(CONTENT_TEXT_STYLES.CONTENT_COLOR_TWO), ...{marginLeft: 10, marginRight: 10}},
+    stateText: {...StyleSheet.flatten(SUB_TEXT_STYLES.PRIMARY_COLOR)}
 });
 
 

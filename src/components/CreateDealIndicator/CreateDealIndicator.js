@@ -10,13 +10,13 @@ import PropTypes from 'prop-types'
 import ChooseInfoStep from "./ChooseInfoStep";
 import ChooseAddressStep from "./ChooseAddressStep";
 import PostDealStep from "./PostDealStep";
-import {subText} from "../../styles/text";
+import {SUB_TEXT_STYLES} from "../../styles/text";
 import {defaultRegion} from "../../config/map";
 import {
-    backgroundColor, backgroundColor2, contentColor, contentColor2, mainColor,
-    mainColor2
+    BACKGROUND_COLOR, BACKGROUND_COLOR_TWO, CONTENT_COLOR, CONTENT_COLOR_TWO, PRIMARY_COLOR,
+    PRIMARY_COLOR_TWO
 } from "../../styles/color";
-import {iconSize} from "../../styles/icon";
+import {ICON_SIZE} from "../../styles/icon";
 
 
 const propTypes = ({
@@ -221,12 +221,12 @@ export default class CreateDealIndicator extends Component {
 
                 <View style={styles.stepButtonContainer}>
                     <TouchableOpacity style={styles.stepButton} onPress={this.onPressPreviousStep}>
-                        <Icon size={iconSize.small} name="keyboard-arrow-left" color={backgroundColor}/>
+                        <Icon size={ICON_SIZE.SMALL} name="keyboard-arrow-left" color={BACKGROUND_COLOR}/>
                         <Text style={styles.stepButtonText}>Trở về</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.stepButton} onPress={this.onPressFollowingStep}>
                         <Text style={styles.stepButtonText}>{this.state.currentStep!==2?"Tiếp theo":"Đăng kèo"}</Text>
-                        <Icon size={iconSize.small} name="keyboard-arrow-right" color={backgroundColor}/>
+                        <Icon size={ICON_SIZE.SMALL} name="keyboard-arrow-right" color={BACKGROUND_COLOR}/>
                     </TouchableOpacity>
                 </View>
 
@@ -257,7 +257,7 @@ CreateDealIndicator.defaultProps = defaultProps;
 
 
 const styles = StyleSheet.create({
-    container: {flex: 1, backgroundColor:backgroundColor},
+    container: {flex: 1, backgroundColor:BACKGROUND_COLOR},
     stepButtonContainer: {
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -265,12 +265,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor:'transparent'
     },
-    stepButtonText: StyleSheet.flatten(subText.whiteColor),
+    stepButtonText: StyleSheet.flatten(SUB_TEXT_STYLES.WHITE_COLOR),
     stepButton: {
         width: '30%', flexDirection: 'row',
         height:30,
         borderRadius: 30,
-        backgroundColor: mainColor, alignItems: 'center',
+        backgroundColor: PRIMARY_COLOR, alignItems: 'center',
         justifyContent: 'center',
         margin:3
     },
@@ -281,21 +281,21 @@ const customStyles = {
     currentStepIndicatorSize: 55,
     separatorStrokeWidth: 2,
     currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: mainColor2,
+    stepStrokeCurrentColor: PRIMARY_COLOR_TWO,
     stepStrokeWidth: 3,
-    stepStrokeFinishedColor: mainColor2,
-    stepStrokeUnFinishedColor: backgroundColor2,
-    separatorFinishedColor: mainColor2,
-    separatorUnFinishedColor: backgroundColor2,
-    stepIndicatorFinishedColor: mainColor2,
-    stepIndicatorUnFinishedColor: backgroundColor2,
-    stepIndicatorCurrentColor: mainColor,
+    stepStrokeFinishedColor: PRIMARY_COLOR_TWO,
+    stepStrokeUnFinishedColor: BACKGROUND_COLOR_TWO,
+    separatorFinishedColor: PRIMARY_COLOR_TWO,
+    separatorUnFinishedColor: BACKGROUND_COLOR_TWO,
+    stepIndicatorFinishedColor: PRIMARY_COLOR_TWO,
+    stepIndicatorUnFinishedColor: BACKGROUND_COLOR_TWO,
+    stepIndicatorCurrentColor: PRIMARY_COLOR,
     stepIndicatorLabelFontSize: 13,
     currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: backgroundColor2,
-    stepIndicatorLabelFinishedColor: backgroundColor2,
-    stepIndicatorLabelUnFinishedColor: contentColor2,
-    labelColor: contentColor2,
+    stepIndicatorLabelCurrentColor: BACKGROUND_COLOR_TWO,
+    stepIndicatorLabelFinishedColor: BACKGROUND_COLOR_TWO,
+    stepIndicatorLabelUnFinishedColor: CONTENT_COLOR_TWO,
+    labelColor: CONTENT_COLOR_TWO,
     labelSize: 13,
-    currentStepLabelColor: contentColor
+    currentStepLabelColor: CONTENT_COLOR
 };

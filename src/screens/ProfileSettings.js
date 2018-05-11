@@ -6,9 +6,9 @@ import SocialIcon from "react-native-elements/src/social/SocialIcon";
 import Spinner from 'react-native-loading-spinner-overlay';
 import CircleImage from "../components/CircleImage";
 import EditProfileInput from '../components/EditProfileInput'
-import container from '../styles/container'
-import {backgroundColor, borderColorRegular} from "../styles/color";
-import {iconColor, iconSize} from "../styles/icon";
+import CONTAINER from '../styles/container'
+import {BACKGROUND_COLOR, BORDER_COLOR_REGULAR} from "../styles/color";
+import {ICON_COLOR, ICON_SIZE} from "../styles/icon";
 
 export default class User extends Component {
     constructor(props) {
@@ -105,7 +105,7 @@ export default class User extends Component {
 
                         <View style={styles.textInputAboutContainer}>
                             <View style={{height: 40, justifyContent: 'center'}}>
-                                <EleIcon size={iconSize.regular} name="chrome-reader-mode" color={iconColor.contentColor2}/>
+                                <EleIcon size={ICON_SIZE.REGULAR} name="chrome-reader-mode" color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                             </View>
                             <TextInput
                                 placeholder="About.." multiline={true} numberOfLines={4}
@@ -129,11 +129,11 @@ const styles = StyleSheet.create({
 
     activityIndicator: {alignSelf: 'center'},
 
-    header: StyleSheet.flatten(container.headerContainer),
+    header: StyleSheet.flatten(CONTAINER.headerContainer),
 
-    navigateBackButton: StyleSheet.flatten(container.headerLeftButton),
+    navigateBackButton: StyleSheet.flatten(CONTAINER.headerLeftButton),
 
-    doneButton: StyleSheet.flatten(container.headerRightButton),
+    doneButton: StyleSheet.flatten(CONTAINER.headerRightButton),
 
     imageBackground: {height: 300, width: '100%', justifyContent: 'center', alignItems: 'center'},
 
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 
     imageTouchable: {
         width: 150, height: 150,
-        backgroundColor: 'transparent', borderWidth: 2, borderColor: borderColorRegular, borderRadius: 85,
+        backgroundColor: 'transparent', borderWidth: 2, borderColor: BORDER_COLOR_REGULAR, borderRadius: 85,
         alignItems: 'center', justifyContent: 'center'
     },
 
@@ -155,10 +155,10 @@ const styles = StyleSheet.create({
 
     socialButton: {width: 30, height: 30},
 
-    editContainer: {flex: 1, width: '100%', alignItems: 'center', backgroundColor: backgroundColor},
+    editContainer: {flex: 1, width: '100%', alignItems: 'center', backgroundColor: BACKGROUND_COLOR},
 
     textInputAboutContainer: {
-        width: '90%', borderBottomColor: borderColorRegular, flexDirection: 'row', justifyContent: 'flex-start'
+        width: '90%', borderBottomColor: BORDER_COLOR_REGULAR, flexDirection: 'row', justifyContent: 'flex-start'
     },
 
     textInputAbout: {

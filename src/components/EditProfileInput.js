@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Icon as ElementsIcon} from 'react-native-elements';
 import {View, Image, StyleSheet, TextInput} from 'react-native'
-import {backgroundColor, borderColorRegular} from "../styles/color";
-import {iconColor, iconSize} from "../styles/icon";
+import {BACKGROUND_COLOR, BORDER_COLOR_REGULAR} from "../styles/color";
+import {ICON_COLOR, ICON_SIZE} from "../styles/icon";
 
 const propTypes = ({
     style: PropTypes.any,
@@ -36,7 +36,7 @@ export default class EditProfileInput extends Component {
     render() {
         return (
             <View style={[styles.container, this.props.style]}>
-                <ElementsIcon size={iconSize.regular} name={this.props.iconName} color={iconColor.contentColor2}/>
+                <ElementsIcon size={ICON_SIZE.REGULAR} name={this.props.iconName} color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                 <TextInput
                     placeholder={this.props.placeholder}
                     value={this.props.value}
@@ -60,12 +60,12 @@ const styles = StyleSheet.create({
     textInput:{
         width: '100%',
         height: 40,
-        backgroundColor: backgroundColor,
+        backgroundColor: BACKGROUND_COLOR,
         marginLeft: 20,
         marginTop: 7,
         marginBottom: 7,
         textAlign: 'left',
         borderBottomWidth: 1,
-        borderColor: borderColorRegular
+        borderColor: BORDER_COLOR_REGULAR
     }
 });

@@ -8,9 +8,9 @@ import {
 import {Icon as ElementsIcon, SocialIcon} from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {width, height} from 'react-native-dimension';
-import {iconColor, iconSize} from "../styles/icon";
-import {backgroundColor, borderColorRegular, mainColor} from "../styles/color";
-import {crucialText} from "../styles/text";
+import {ICON_COLOR, ICON_SIZE} from "../styles/icon";
+import {BACKGROUND_COLOR, BORDER_COLOR_REGULAR, PRIMARY_COLOR} from "../styles/color";
+import {CRUCIAL_TEXT_STYLES} from "../styles/text";
 
 
 export default class Profile extends Component {
@@ -41,7 +41,7 @@ export default class Profile extends Component {
                 <View style={styles.header}>
                     <View style={styles.headerUpper}>
                         <TouchableOpacity style={styles.backButton} onPress={this.onBackPress}>
-                            <ElementsIcon name="keyboard-arrow-left" size={iconSize.regular} color={backgroundColor}/>
+                            <ElementsIcon name="keyboard-arrow-left" size={ICON_SIZE.REGULAR} color={BACKGROUND_COLOR}/>
                         </TouchableOpacity>
                         <Text style={styles.name}>{this.state.user.name}</Text>
                     </View>
@@ -52,15 +52,15 @@ export default class Profile extends Component {
 
                 <View style={styles.body}>
                     <View style={styles.infoRow}>
-                        <Icon name="md-call" size={iconSize.regular} color={iconColor.contentColor2}/>
+                        <Icon name="md-call" size={ICON_SIZE.REGULAR} color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                         <Text style={styles.infoText}>{this.state.user.phone}</Text>
                     </View>
                     <View style={styles.infoRow}>
-                        <Icon name="md-mail" size={iconSize.regular} color={iconColor.contentColor2}/>
+                        <Icon name="md-mail" size={ICON_SIZE.REGULAR} color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                         <Text style={styles.infoText}>{this.state.user.email}</Text>
                     </View>
                     <View style={styles.aboutRow}>
-                        <Icon name="md-clipboard" size={iconSize.regular} color={iconColor.contentColor2}/>
+                        <Icon name="md-clipboard" size={ICON_SIZE.REGULAR} color={ICON_COLOR.CONTENT_COLOR_TWO}/>
                         <ScrollView style={styles.scrollView}>
                             <Text style={styles.infoRow}>{this.state.user.about}</Text>
                         </ScrollView>
@@ -76,7 +76,7 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
         container: {flex: 1},
-        header: {height: width(60), backgroundColor: mainColor},
+        header: {height: width(60), backgroundColor: PRIMARY_COLOR},
         image: {
             position: 'absolute',
             borderRadius: 100,
@@ -85,21 +85,21 @@ const styles = StyleSheet.create({
             marginTop: width(15),
             marginLeft: 20,
             borderWidth: 2, borderColor: 'white',
-            backgroundColor:backgroundColor
+            backgroundColor:BACKGROUND_COLOR
         },
         backButton: {alignSelf: 'flex-start', padding: 10},
 
-        headerUpper: {flex: 1, backgroundColor: mainColor, justifyContent: 'space-between'},
-        headerBody: {flex: 1, backgroundColor: backgroundColor},
+        headerUpper: {flex: 1, backgroundColor: PRIMARY_COLOR, justifyContent: 'space-between'},
+        headerBody: {flex: 1, backgroundColor: BACKGROUND_COLOR},
 
-        name: {...StyleSheet.flatten(crucialText.whiteColor),marginLeft: width(30) + 20, alignSelf: 'center'},
+        name: {...StyleSheet.flatten(CRUCIAL_TEXT_STYLES.WHITE_COLOR),marginLeft: width(30) + 20, alignSelf: 'center'},
         socialButtonContainer: {flexDirection: 'row', marginLeft: width(30) + 20, alignSelf: 'center'},
         socialIcon: {width: 30, height: 30, marginRight: 3},
 
         body: {flex: 1, backgroundColor: 'white'},
         infoRow: {flexDirection: 'row', marginTop: 10, marginLeft: 20, marginRight: 20},
         aboutRow: {flexDirection: 'row', marginTop: 10, marginLeft: 20, marginRight: 20, flex: 1},
-        infoText: {borderBottomWidth: 1, borderColor: borderColorRegular, padding: 10, flex: 1},
+        infoText: {borderBottomWidth: 1, borderColor: BORDER_COLOR_REGULAR, padding: 10, flex: 1},
         scrollView: {flexWrap: 'wrap'}
     }
 );

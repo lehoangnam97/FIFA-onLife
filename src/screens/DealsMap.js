@@ -3,7 +3,7 @@ import {View, StyleSheet, TouchableOpacity, Text} from 'react-native'
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import DealMarker from '../components/DealMarker'
 import * as axios from 'axios';
-import map from "../styles/map";
+import MAP_STYLES from "../styles/map";
 import {mapStyle, defaultRegion} from '../config/map.js'
 import FilterSlidingUp from "../components/FilterSlidingUp";
 import DealSlidingUp from "../components/DealSlidingUp";
@@ -140,7 +140,7 @@ export default class DealsMap extends Component {
             <View style={styles.container}>
                 <MapView
                     ref={ref => this.mapRef = ref} provider={PROVIDER_GOOGLE}
-                    style={styles.map} customMapStyle={mapStyle}
+                    style={styles.map} customMapStyle={MAP_STYLES}
                     loadingEnabled={true} initialRegion={this.state.mapRegion}
                     onRegionChangeComplete={region => {
                         if (region.latitudeDelta > defaultRegion.latitudeDelta * 0.3) {
@@ -203,8 +203,8 @@ export default class DealsMap extends Component {
 
 
 const styles = StyleSheet.create({
-    container: StyleSheet.flatten(map.container),
-    map: StyleSheet.flatten(map.content),
+    container: StyleSheet.flatten(MAP_STYLES.CONTAINER),
+    map: StyleSheet.flatten(MAP_STYLES.content),
 
     currentAddressTextContainer: {
         position: 'absolute',

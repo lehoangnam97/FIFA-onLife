@@ -4,12 +4,12 @@ import ModalDropdown from "react-native-modal-dropdown";
 import DatePicker from "react-native-datepicker";
 import {Icon} from 'react-native-elements';
 import filterOptions from '../../ultils/filterOptions';
-import datePickerStyle from '../../styles/datePicker';
+import DATE_PICKER_STYLE from '../../styles/datePicker';
 
 import {height} from 'react-native-dimension';
 import PropTypes from 'prop-types'
-import {backgroundColor2} from "../../styles/color";
-import {contentText, subText} from "../../styles/text";
+import {BACKGROUND_COLOR_TWO} from "../../styles/color";
+import {CONTENT_TEXT_STYLES, SUB_TEXT_STYLES} from "../../styles/text";
 
 
 const propTypes = ({
@@ -154,7 +154,7 @@ export default class ChooseInfoStep extends Component {
         const {style} = this.props;
 
         return (
-            <View style={[styles.container, style]}>
+            <View style={[styles.CONTAINER, style]}>
                 <ScrollView style={styles.scrollView}>
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Loại đội bóng :</Text>
@@ -213,7 +213,7 @@ export default class ChooseInfoStep extends Component {
                     <View style={styles.subContentContainer}>
                         <Text style={styles.subTitleText}>Ngày :</Text>
                         <DatePicker
-                            style={styles.modalDropDownContainerView} customStyles={datePickerStyle}
+                            style={styles.modalDropDownContainerView} customStyles={DATE_PICKER_STYLE}
                             date={this.state.date} showIcon={false}
                             mode="date" format="DD-MM-YYYY"
                             minDate={new Date()} maxDate={this.maxDate(7)}
@@ -228,7 +228,7 @@ export default class ChooseInfoStep extends Component {
                         <View style={{flexDirection: 'row', width: '100%'}}>
                             <Text style={styles.contentText}>Từ: </Text>
                             <DatePicker
-                                style={styles.timePickerStyle} customStyles={datePickerStyle}
+                                style={styles.timePickerStyle} customStyles={DATE_PICKER_STYLE}
                                 date={this.state.time1}
                                 showIcon={false} minTime={new Date()} minuteInterval={30} androidMode='spinner'
                                 mode='time' format="HH:mm a"
@@ -238,7 +238,7 @@ export default class ChooseInfoStep extends Component {
 
                             <Text style={styles.contentText}>Đến:</Text>
                             <DatePicker
-                                style={styles.timePickerStyle} customStyles={datePickerStyle}
+                                style={styles.timePickerStyle} customStyles={DATE_PICKER_STYLE}
                                 date={this.state.time2} showIcon={false} androidMode='spinner'
                                 minTime={this.state.time1} minuteInterval={10}
                                 mode='time' format="HH:mm a" onDateChange={this.onTimeEndChange}
@@ -264,10 +264,10 @@ const styles = StyleSheet.create({
 
     dropDownStyle: {width: '85%', marginLeft: 10},
     dropDownTextStyle: {textAlign: 'right'},
-    chosenText: StyleSheet.flatten(subText.contentColor),
+    chosenText: StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR),
     modalDropDownContainerView: {
         width: '85%', marginLeft: 10, alignItems: 'flex-end',
-        backgroundColor: backgroundColor2, borderRadius: 10,
+        backgroundColor: BACKGROUND_COLOR_TWO, borderRadius: 10,
     },
     modalDropDownContentView:{
       flexDirection:'row',width:'100%'
@@ -275,10 +275,10 @@ const styles = StyleSheet.create({
 
     timePickerStyle: {
         width: '30%', marginLeft: 10, marginRight: 20, alignItems: 'flex-end',
-        backgroundColor: backgroundColor2, borderRadius: 10
+        backgroundColor: BACKGROUND_COLOR_TWO, borderRadius: 10
     },
     subContentContainer: {margin: 10, width: '100%'},
-    subTitleText: StyleSheet.flatten(subText.contentColor),
-    contentText: StyleSheet.flatten(contentText.contentColor),
+    subTitleText: StyleSheet.flatten(SUB_TEXT_STYLES.CONTENT_COLOR),
+    contentText: StyleSheet.flatten(CONTENT_TEXT_STYLES.CONTENT_COLOR),
 
 });

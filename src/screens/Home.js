@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import DealsListView from '../components/DealsListView/DealsListView'
 import globalStore from '../config/globalStore';
-import {backgroundColor} from "../styles/color";
+import {BACKGROUND_COLOR} from "../styles/color";
 
 export default class Home extends Component {
     constructor(props) {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     nameInput: {
         width: '100%',
         height: 150,
-        backgroundColor: backgroundColor
+        backgroundColor: BACKGROUND_COLOR
     }
 });
 
