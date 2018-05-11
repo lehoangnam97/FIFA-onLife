@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Icon as ElementsIcon} from 'react-native-elements';
-import Icon from 'react-native-vector-icons'
-
+import Icon from 'react-native-vector-icons/Ionicons';
+ 
 import {ConfirmDialog} from 'react-native-simple-dialogs';
 import PropTypes from 'prop-types'
 import SlidingUpPanel from 'rn-sliding-up-panel'
@@ -64,8 +64,6 @@ export default class DealSlidingUp extends Component {
         this.onCallPress = this.onCallPress.bind(this);
         this.onMakeDealPress = this.onMakeDealPress.bind(this);
         this.onViewTeamPress = this.onViewTeamPress.bind(this);
-        this.onConfirmMakeDealPress = this.onConfirmMakeDealPress.bind(this);
-        this.onCancelMakeDealPress = this.onCancelMakeDealPress.bind(this);
         this.onTouchOutsideDialog = this.onTouchOutsideDialog.bind(this);
         this.onRequestClose = this.onRequestClose.bind(this);
     };
@@ -89,11 +87,13 @@ export default class DealSlidingUp extends Component {
 
     onConfirmMakeDealPress() {
         const {onConfirmMakeDealPress} = this.props;
+        this.setState({dialogVisible:false});
         onConfirmMakeDealPress();
     }
 
     onCancelMakeDealPress() {
         const {onCancelMakeDealPress} = this.props;
+        this.setState({dialogVisible:false});
         onCancelMakeDealPress();
     }
 
